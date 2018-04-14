@@ -1,3 +1,8 @@
+body {
+	font-family: 'Lato', sans-serif;
+  /*font-family: 'Indie Flower', cursive;*/
+}
+
 h5 {
   display: inline-block;
   padding: 10px;
@@ -10,4 +15,29 @@ h5 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.overlay {
+  position:absolute;
+  z-index:12;
+  top:50%;
+  left:0;
+  width:100%;
+  text-align:center;
+}
+
+h1 {
+    color:#dae0e5;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+h2 {
+    color: #dae0e5;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
 }

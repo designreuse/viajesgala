@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <script th:src="${'/viajesgala/webjars/jquery/3.3.1-1/jquery.min.js'}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script th:src="${'/viajesgala/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js'}" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
@@ -69,18 +71,24 @@ $(document).ready(function() {
   </div>
 </nav>
 
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item">
-      <img class="d-block w-100" th:src="${'/viajesgala/images/adult-background-beach-296282.jpg'}" src="../static/images/adult-background-beach-296282.jpg" data-color="lightblue" alt="First Image">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" th:src="${'/viajesgala/images/beach-exotic-holiday-248797.jpg'}" src="../static/images/beach-exotic-holiday-248797.jpg" data-color="firebrick" alt="Second Image">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" th:src="${'/viajesgala/images/beautiful-holiday-lake-358482.jpg'}" src="../static/images/beautiful-holiday-lake-358482.jpg" data-color="violet" alt="Third Image">
-    </div>
+<div class="overlay">
+  <h1>Bienvenido a Viajes Gala</h1>
+  <h2>Aquí comienza el viaje de tus sueños</h2>
+  <a class="btn btn-lg btn-outline-primary text-white">Empieza tu viaje</a>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner">
+  <div class="carousel-item">
+    <img class="d-block w-100" th:src="${'/viajesgala/images/adult-background-beach-296282.jpg'}" src="../static/images/adult-background-beach-296282.jpg" data-color="lightblue" alt="First Image">
   </div>
+  <div class="carousel-item">
+    <img class="d-block w-100" th:src="${'/viajesgala/images/beach-exotic-holiday-248797.jpg'}" src="../static/images/beach-exotic-holiday-248797.jpg" data-color="firebrick" alt="Second Image">
+  </div>
+  <div class="carousel-item">
+    <img class="d-block w-100" th:src="${'/viajesgala/images/beautiful-holiday-lake-358482.jpg'}" src="../static/images/beautiful-holiday-lake-358482.jpg" data-color="violet" alt="Third Image">
+  </div>
+</div>
 </div>
 
 </body>
