@@ -11,4 +11,9 @@ public class HomeController {
 		return "home";
 	}
 	
+	@GetMapping("contacto")
+	public String contacto() {
+		return "contacto";
+	}
+	
 }
