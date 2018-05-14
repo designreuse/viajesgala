@@ -54,7 +54,7 @@ $(document).ready(function() {
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="nav navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/viajesgala">Home
+          <a class="nav-link" th:href="@{/viajesgala}" href="home.html">Home
             <span class="sr-only">(current)</span>
           </a>
         </li>
@@ -62,7 +62,7 @@ $(document).ready(function() {
           <a class="nav-link" href="#" th:text="${category}">Sobre nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/viajesgala/contacto">Contacto</a>
+          <a class="nav-link" th:href="@{/viajesgala/contacto}" href="contacto.html">Contacto</a>
         </li>
       </ul>
     </div>
