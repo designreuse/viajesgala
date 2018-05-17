@@ -2,6 +2,7 @@ package com.viajesgala.services;
 
 import java.util.List;
 
+import org.htmlcleaner.HtmlCleaner;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -22,6 +23,18 @@ public class WordPressService {
 		RestTemplate restTemplate = new RestTemplate();
 		
 		ResponseEntity<List<Post>> posts = restTemplate.exchange(postsUrl,HttpMethod.GET,null,new ParameterizedTypeReference<List<Post>>(){});
+		
+		if (posts != null) {
+			
+			HtmlCleaner htmlCleaner = new HtmlCleaner();
+			
+			for (Post post: posts.getBody()) {
+				
+				post.setContent(htmlCleaner.clean(post.getContent()).getText().toString());
+				
+			}
+			
+		}
 		
 		return posts.getBody();
 		

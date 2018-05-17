@@ -39,6 +39,15 @@ public class HomeController {
 		return "home";
 	}
 	
+	@GetMapping("/posts")
+	public String posts(Model model) {
+		List<Post> posts = wordPressService.getPosts();
+		model.addAttribute("posts",posts);
+		
+		return "posts";
+		
+	}	
+	
 	@GetMapping("contacto")
 	public String contacto() {
 		return "contacto";

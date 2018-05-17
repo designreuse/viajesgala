@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Viajes Gala</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <script th:src="${'/viajesgala/webjars/jquery/3.3.1-1/jquery.min.js'}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script th:src="${'/viajesgala/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js'}" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="icon" th:href="@{/images/favicon.png}" href="../static/images/favicon.png">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="row">
+  
+    <div class="col-12">
+    
+      <div th:each="post: ${posts}" class="card mt-3">
+        <div class="card-body">
+        	<h4 class="card-title" th:text="${post.title}">Card Title</h4>
+        	<p class="card-text" th:text="${post.content}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    	
+      </div>
+    </div>
+  
+  </div>
+
+</div>
+
+</body>
+
+</html>
