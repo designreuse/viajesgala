@@ -24,6 +24,18 @@
         <div class="card-body">
         	<h4 class="card-title" th:text="${post.title}">Card Title</h4>
         	<p class="card-text" th:text="${post.content}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        	<div class="carousel slide" data-ride="carousel">
+        	
+        		<div class="carousel-inner">
+        		
+        			<div th:each="image,i: ${post.imagesSrc}" class="carousel-item" th:classappend="${i.index==0}?'active':''">
+        				<img class="d-block w-100" th:src="${image}">
+        			</div>
+        		
+        		</div>
+        	
+        	</div>
+        	
         </div>
     	
       </div>
