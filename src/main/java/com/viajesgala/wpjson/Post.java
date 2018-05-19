@@ -2,6 +2,7 @@
 package com.viajesgala.wpjson;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Post {
@@ -32,6 +33,8 @@ public class Post {
     private FeaturedImage featuredImage;
     private Terms terms;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    
+    private List<String> imagesSrc;
 
     public Integer getID() {
         return iD;
@@ -240,5 +243,25 @@ public class Post {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
+
+	public Integer getiD() {
+		return iD;
+	}
+
+	public void setiD(Integer iD) {
+		this.iD = iD;
+	}
+
+	public List<String> getImagesSrc() {
+		return imagesSrc;
+	}
+
+	public void setImagesSrc(List<String> imagesSrc) {
+		this.imagesSrc = imagesSrc;
+	}
+
+	public void setAdditionalProperties(Map<String, Object> additionalProperties) {
+		this.additionalProperties = additionalProperties;
+	}    
 
 }

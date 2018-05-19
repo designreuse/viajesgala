@@ -1,8 +1,12 @@
 package com.viajesgala.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.htmlcleaner.HtmlCleaner;
+import org.htmlcleaner.HtmlNode;
+import org.htmlcleaner.TagNode;
+import org.htmlcleaner.TagNodeVisitor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -30,7 +34,28 @@ public class WordPressService {
 			
 			for (Post post: posts.getBody()) {
 				
+				final List<String> imagesSrc = new ArrayList<String>();
+				TagNode node = htmlCleaner.clean(post.getContent());
+				
+				node.traverse(new TagNodeVisitor() {
+					public boolean visit(TagNode tagNode, HtmlNode htmlNode) {
+				        if (htmlNode instanceof TagNode) {
+				            TagNode tag = (TagNode) htmlNode;
+				            String tagName = tag.getName();
+				            if ("img".equals(tagName)) {
+				                String src = tag.getAttributeByName("src");
+				                if (src != null) {
+				                	imagesSrc.add(src);
+				                }
+				            }
+				        }
+				        // tells visitor to continue traversing the DOM tree
+				        return true;
+				    }
+				});
+				
 				post.setContent(htmlCleaner.clean(post.getContent()).getText().toString());
+				post.setImagesSrc(imagesSrc);
 				
 			}
 			
