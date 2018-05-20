@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.HtmlNode;
+import org.htmlcleaner.SimpleHtmlSerializer;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.TagNodeVisitor;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,6 +48,7 @@ public class WordPressService {
 				                if (src != null) {
 				                	imagesSrc.add(src);
 				                }
+				                tag.removeFromTree();
 				            }
 				        }
 				        // tells visitor to continue traversing the DOM tree
@@ -54,7 +56,8 @@ public class WordPressService {
 				    }
 				});
 				
-				post.setContent(htmlCleaner.clean(post.getContent()).getText().toString());
+				SimpleHtmlSerializer serializer = new SimpleHtmlSerializer(htmlCleaner.getProperties());
+				post.setContent(serializer.getAsString(node));
 				post.setImagesSrc(imagesSrc);
 				
 			}

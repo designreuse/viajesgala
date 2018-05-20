@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css" />
+  <link rel="stylesheet" th:href="@{/css/wordpress.css}" href="../static/css/wordpress.css" />
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <script th:src="${'/viajesgala/webjars/jquery/3.3.1-1/jquery.min.js'}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -23,7 +24,7 @@
       <div th:each="post: ${posts}" class="card mt-3">
         <div class="card-body">
         	<h4 class="card-title" th:text="${post.title}">Card Title</h4>
-        	<p class="card-text" th:text="${post.content}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        	<p class="card-text" th:utext="${post.content}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         	<div class="carousel slide" data-ride="carousel">
         	
         		<div class="carousel-inner">
