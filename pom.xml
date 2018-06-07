@@ -25,6 +25,7 @@
 		<bootstrap.version>4.0.0-2</bootstrap.version>
 		<jquery.version>3.3.1-1</jquery.version>
 		<htmlcleaner.version>2.22</htmlcleaner.version>
+		<wowjs.version>1.1.2</wowjs.version>
 	</properties>
 
 	<dependencies>
@@ -78,7 +79,13 @@
 		    <groupId>net.sourceforge.htmlcleaner</groupId>
 		    <artifactId>htmlcleaner</artifactId>
 		    <version>${htmlcleaner.version}</version>
-		</dependency>		
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.webjars.bower</groupId>
+		    <artifactId>wowjs</artifactId>
+		    <version>${wowjs.version}</version>
+		</dependency>				
 		
 	</dependencies>
 

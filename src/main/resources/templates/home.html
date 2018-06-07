@@ -6,13 +6,17 @@
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css" />
   <link rel="stylesheet" th:href="@{/css/cookiealert.css}" href="../static/css/cookiealert.css">
+  <link rel="stylesheet" th:href="@{/webjars/wowjs/1.1.2/css/libs/animate.css}">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <script th:src="${'/viajesgala/webjars/jquery/3.3.1-1/jquery.min.js'}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script th:src="${'/viajesgala/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js'}" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script th:src="${'/viajesgala/webjars/wowjs/1.1.2/dist/wow.min.js'}"></script>
   <link rel="icon" th:href="@{/images/favicon.png}" href="../static/images/favicon.png">
 </head>
 <body>
+
+<script>new WOW().init();</script>
 
 <script>
 $(document).ready(function() {
@@ -84,10 +88,10 @@ $(document).ready(function() {
   </div>
 </nav>
 
-<div class="overlay">
+<div class="overlay wow fadeInUp">
   <h1>Bienvenido a Viajes Gala</h1>
   <h2>Aquí comienza el viaje de tus sueños</h2>
-  <a class="btn btn-lg btn-primary text-white">Empieza tu viaje</a>
+  <a class="btn btn-lg btn-primary text-white wow pulse" data-wow-iteration="infinite" data-wow-duration="1500ms">Empieza tu viaje</a>
 </div>
 
 <!--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
