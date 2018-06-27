@@ -28,6 +28,7 @@
 		<wowjs.version>1.1.2</wowjs.version>
 		<popper.js.version>1.14.1</popper.js.version>
 		<font-awesome.version>5.1.0</font-awesome.version>
+		<custom-scrollbar.version>3.1.5</custom-scrollbar.version>
 	</properties>
 
 	<dependencies>
@@ -99,7 +100,14 @@
 		    <groupId>org.webjars</groupId>
 		    <artifactId>font-awesome</artifactId>
 		    <version>${font-awesome.version}</version>
-		</dependency>								
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.webjars.bower/malihu-custom-scrollbar-plugin -->
+		<dependency>
+		    <groupId>org.webjars.bower</groupId>
+		    <artifactId>malihu-custom-scrollbar-plugin</artifactId>
+		    <version>${custom-scrollbar.version}</version>
+		</dependency>										
 		
 	</dependencies>
 

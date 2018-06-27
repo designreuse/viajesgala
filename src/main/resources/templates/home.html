@@ -7,6 +7,7 @@
   <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css" />
   <link rel="stylesheet" th:href="@{/css/cookiealert.css}" href="../static/css/cookiealert.css">
   <link rel="stylesheet" th:href="@{/webjars/wowjs/1.1.2/css/libs/animate.css}">
+  <link rel="stylesheet" th:href="@{/webjars/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css}">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <script th:src="${'/viajesgala/webjars/jquery/3.3.1-1/jquery.min.js'}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -15,6 +16,7 @@
   <script th:src="${'/viajesgala/webjars/font-awesome/5.1.0/js/solid.js'}"></script>
   <script th:src="${'/viajesgala/webjars/font-awesome/5.1.0/js/fontawesome.js'}"></script>
   <script th:src="${'/viajesgala/webjars/popper.js/1.14.1/umd/popper.min.js'}"></script>
+  <script th:src="${'/viajesgala/webjars/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js'}"></script>
   <link rel="icon" th:href="@{/images/favicon.png}" href="../static/images/favicon.png">
 </head>
 <body>
@@ -47,7 +49,7 @@ $(document).ready(function() {
 	$('.carousel').carousel({
 	  interval: 6000,
 	  pause: "false"
-	});
+	});	
 });
 
 </script>
