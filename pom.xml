@@ -26,6 +26,8 @@
 		<jquery.version>3.3.1-1</jquery.version>
 		<htmlcleaner.version>2.22</htmlcleaner.version>
 		<wowjs.version>1.1.2</wowjs.version>
+		<popper.js.version>1.14.1</popper.js.version>
+		<font-awesome.version>5.1.0</font-awesome.version>
 	</properties>
 
 	<dependencies>
@@ -85,7 +87,19 @@
 		    <groupId>org.webjars.bower</groupId>
 		    <artifactId>wowjs</artifactId>
 		    <version>${wowjs.version}</version>
-		</dependency>				
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>popper.js</artifactId>
+		    <version>${popper.js.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>font-awesome</artifactId>
+		    <version>${font-awesome.version}</version>
+		</dependency>								
 		
 	</dependencies>
 
