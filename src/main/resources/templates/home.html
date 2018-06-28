@@ -49,7 +49,21 @@ $(document).ready(function() {
 	$('.carousel').carousel({
 	  interval: 6000,
 	  pause: "false"
-	});	
+	});
+	
+	 $("#sidebar").mCustomScrollbar({
+         theme: "minimal"
+     });
+
+     $('#dismiss').on('click', function () {
+         $('#sidebar').removeClass('active');
+     });
+
+     $('#sidebarCollapse').on('click', function () {
+         $('#sidebar').addClass('active');
+         $('.collapse.in').toggleClass('in');
+     });
+	
 });
 
 </script>
@@ -69,7 +83,7 @@ $(document).ready(function() {
 <script th:src="@{/js/cookiealert-standalone.js}" src="../static/js/cookiealert-standalone.js"></script>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">Viajes Gala</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,9 +105,38 @@ $(document).ready(function() {
       </ul>
     </div>
   </div>
-</nav>
+</nav>-->
 
-<div class="overlay wow fadeInUp">
+<div class="wrapper">
+  <nav id="sidebar">
+    <div id="dismiss">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+    <div class="sidebar-header">
+		<h3>Viajes Gala</h3>
+	</div>
+    <ul class="list-unstyled components">
+      <li class="active">
+         <a th:href="@{/viajesgala}" href="home.html">Home</a>
+      </li>
+      <li th:each="category: ${categories}">
+        <a href="#" th:text="${category}">Sobre nosotros</a>
+      </li>
+      <li>
+         <a th:href="@{/viajesgala/contacto}" href="contacto.html">Contacto</a>
+      </li>
+    </ul>    
+  </nav>
+</div>
+
+<div class="menuCollapse">
+  <button type="button" id="sidebarCollapse" class="btn btn-info">
+    <i class="fas fa-align-left"></i>
+    <span>Menú</span>
+  </button>
+</div>
+
+<div class="overlay wow fadeInUp">  
   <h1>Bienvenido a Viajes Gala</h1>
   <h2>Aquí comienza el viaje de tus sueños</h2>
   <a class="btn btn-lg btn-primary text-white wow pulse" data-wow-iteration="infinite" data-wow-duration="1500ms">Empieza tu viaje</a>
