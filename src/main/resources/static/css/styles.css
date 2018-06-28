@@ -151,8 +151,8 @@ ul ul a {
 .menuCollapse {
     position: absolute;
     z-index:12;
-    top: 0;
+    top: 10;
     right: 0;
-    left: 0;
+    left: 10;
 }
 
