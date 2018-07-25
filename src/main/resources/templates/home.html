@@ -115,11 +115,11 @@ $(document).ready(function() {
     <div class="sidebar-header">
 		<h3>Viajes Gala</h3>
 	</div>
-    <ul class="list-unstyled components">
+    <ul class="components">
       <li class="active">
          <a th:href="@{/viajesgala}" href="home.html">Home</a>
       </li>
-      <li th:each="category: ${categories}">
+      <li class="initcap" th:each="category: ${categories}">
         <a href="#" th:text="${category}">Sobre nosotros</a>
       </li>
       <li>
