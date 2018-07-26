@@ -1,35 +1,12 @@
 <html>
-<head>
-  <title>Viajes Gala</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  <script th:src="${'/viajesgala/webjars/jquery/3.3.1-1/jquery.min.js'}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script th:src="${'/viajesgala/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js'}" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
+<head th:replace="fragments/index::head"></head>
 <body>
+
+<script>new WOW().init();</script>
 
 <script>
 $(document).ready(function() {
-	var $item = $('.carousel-item');
-	var $wHeight = $(window).height();
-	$item.eq(0).addClass('active');
-	$item.height($wHeight);
-	$item.addClass('full-screen');
-
-	$('.carousel img').each(function() {
-	  var $src = $(this).attr('src');
-	  var $color = $(this).attr('data-color');
-	  $(this).parent().css({
-	    'background-image' : 'url(' + $src + ')',
-	    'background-color' : $color
-	  });
-	  $(this).remove();
-	});
-
+	
 	$(window).on('resize', function (){
 	  $wHeight = $(window).height();
 	  $item.height($wHeight);
@@ -39,34 +16,26 @@ $(document).ready(function() {
 	  interval: 6000,
 	  pause: "false"
 	});
+	
+	 $("#sidebar").mCustomScrollbar({
+         theme: "minimal"
+     });
+
+     $('#dismiss').on('click', function () {
+         $('#sidebar').removeClass('active');
+     });
+
+     $('#sidebarCollapse').on('click', function () {
+         $('#sidebar').addClass('active');
+         $('.collapse.in').toggleClass('in');
+     });
+	
 });
 
 </script>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Viajes Gala</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/viajesgala}" href="home.html">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item" th:each="category: ${categories}">
-          <a class="nav-link" href="#" th:text="${category}">Sobre nosotros</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" th:href="@{/viajesgala/contacto}" href="contacto.html">Contacto</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div th:replace="fragments/index::menu"></div>
+<div th:replace="fragments/index::botonMenu"></div>
 
 <div class="container-fluid overlayContacto">
     <div class="row align-items-center">
@@ -124,7 +93,7 @@ $(document).ready(function() {
 
 <!--  <div class="overlay">
   <h1>Bienvenido a Viajes Gala</h1>
-  <h2>Aquí comienza el viaje de tus sueños</h2>
+  <h2>Aqu� comienza el viaje de tus sue�os</h2>
   <a class="btn btn-lg btn-outline-primary text-white">Empieza tu viaje</a>
 </div>-->
 
