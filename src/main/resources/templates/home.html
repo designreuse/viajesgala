@@ -117,13 +117,13 @@ $(document).ready(function() {
 	</div>
     <ul class="components">
       <li class="active">
-         <a th:href="@{/viajesgala}" href="home.html">Home</a>
+         <a th:href="@{/}" href="home.html">Home</a>
       </li>
       <li class="initcap" th:each="category: ${categories}">
-        <a href="#" th:text="${category}">Sobre nosotros</a>
+        <a th:href="@{'/posts/'+${category}}" th:text="${category}">Sobre nosotros</a>
       </li>
       <li>
-         <a th:href="@{/viajesgala/contacto}" href="contacto.html">Contacto</a>
+         <a th:href="@{/contacto}" href="contacto.html">Contacto</a>
       </li>
     </ul>    
   </nav>
