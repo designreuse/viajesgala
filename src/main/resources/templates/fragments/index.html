@@ -1,0 +1,50 @@
+<head th:fragment="head">
+  <title>Viajes Gala</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css" />
+  <link rel="stylesheet" th:href="@{/css/cookiealert.css}" href="../static/css/cookiealert.css">
+  <link rel="stylesheet" th:href="@{/webjars/wowjs/1.1.2/css/libs/animate.css}">
+  <link rel="stylesheet" th:href="@{/webjars/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css}">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <script th:src="${'/viajesgala/webjars/jquery/3.3.1-1/jquery.min.js'}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script th:src="${'/viajesgala/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js'}" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script th:src="${'/viajesgala/webjars/wowjs/1.1.2/dist/wow.min.js'}"></script>
+  <script th:src="${'/viajesgala/webjars/font-awesome/5.1.0/js/solid.js'}"></script>
+  <script th:src="${'/viajesgala/webjars/font-awesome/5.1.0/js/fontawesome.js'}"></script>
+  <script th:src="${'/viajesgala/webjars/popper.js/1.14.1/umd/popper.min.js'}"></script>
+  <script th:src="${'/viajesgala/webjars/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js'}"></script>
+  <link rel="icon" th:href="@{/images/favicon.png}" href="../static/images/favicon.png">
+</head>
+
+<!-- Navigation -->
+<div class="wrapper" th:fragment="menu">
+  <nav id="sidebar">
+    <div id="dismiss">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+    <div class="sidebar-header">
+		<h3>Viajes Gala</h3>
+	</div>
+    <ul class="components">
+      <li class="active">
+         <a th:href="@{/}" href="home.html">Home</a>
+      </li>
+      <li class="initcap" th:each="category: ${categories}">
+        <a th:href="@{'/posts/'+${category}}" th:text="${category}">Sobre nosotros</a>
+      </li>
+      <li>
+         <a th:href="@{/contacto}" href="contacto.html">Contacto</a>
+      </li>
+    </ul>    
+  </nav>
+</div>
+
+<div class="menuCollapse" th:fragment="botonMenu">
+  <button type="button" id="sidebarCollapse" class="btn btn-lg btn-primary text-white wow pulse" data-wow-iteration="infinite" data-wow-duration="1500ms">
+    <i class="fas fa-align-left"></i>
+    <span>&nbsp;Menú</span>
+  </button>
+</div>
