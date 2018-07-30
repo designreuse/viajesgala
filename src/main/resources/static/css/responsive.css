@@ -1,0 +1,149 @@
+/*--------------------------------------------------------------*/
+/*----------------------ESCRITORIO PEQUEÑO----------------------*/
+/*--------------------------------------------------------------*/
+@media screen and (max-width: 1300px) 
+{
+	.header_continente video {transform: scale(0.8); transform-origin: 0 0;}
+	body.home .portada video {transform: translateX(-50%) translateY(-50%) scale(0.8);}
+	.header_continente canvas {transform: scale(0.8); transform-origin: 0 0;}
+	body.home .portada canvas {transform: translateX(-50%) translateY(-50%) scale(0.8);}
+	.portada .main{padding: 30px;}
+	.frase_home img {max-height: 110%;}
+	#formularioviaje .moduletable {margin-top: 0; padding: 25px;}
+	#formularioviaje h5 {font-size: 27px;}
+	#formreserva input {margin-top: 0;}
+	#formreserva textarea {margin-top: 0;}
+	#my_captcha_div {transform: scale(0.76); transform-origin: 0 0;}
+}
+@media screen and (max-width: 1020px) 
+{
+	h6{padding-bottom: 50px;}
+	.swiper-container p {padding-bottom: 40px;}
+}
+/*--------------------------------------------------------------*/
+/*--------------------------RESPONSIVE--------------------------*/
+/*--------------------------------------------------------------*/
+@media screen and (max-width: 915px) 
+{
+	.cookies .pdd80{padding: 20px;}
+	.cookies .columna5{width: 100%;}
+	.cookies p {font-size: 20px;}
+	body.politicas .cookies .columna5{width: 50%;}
+	body.politicas .cookies .btn {padding: 10px 20px; font-size: 15px;}
+	body.politicas .columna10 h2 {font-size: 22px;}
+	.header_continente video {transform: scale(0.7); transform-origin: 0 0;}
+	body.home .portada video {transform: translateX(-50%) translateY(-50%) scale(0.7);}
+	.header_continente canvas {transform: scale(0.7); transform-origin: 0 0;}
+	body.home .portada canvas {transform: translateX(-50%) translateY(-50%) scale(0.7);}
+	header .moduletable_menu{display: none;}
+	.desktop{display: none;}
+	.responsive{display: block;}
+	h1{font-size: 40px;}
+	h2{font-size: 20px;}
+	#etapas .columna3{width: 100%;}
+	#etapas .columna2new{width: 100%;}
+	#etapas .columna05{display: none;}
+	.nosotros_home .columna5{width: 100%;}
+	.nosotros_home .columna5.bg{height: 200px;} 
+	.nosotros_home .columna5:nth-child(1){order:1;}
+	.nosotros_home .columna5:nth-child(2){order:2;}
+	.nosotros_home .columna5:nth-child(3){order:4;}
+	.nosotros_home .columna5:nth-child(4){order:3;}
+	.nosotros_home .columna5:nth-child(5){order:5;}
+	.nosotros_home .columna5:nth-child(6){order:6;}
+	.nosotros_home .columna5:nth-child(7){order:8;}
+	.nosotros_home .columna5:nth-child(8){order:7;}
+	.nosotros_home .columna5:nth-child(9){order:9;}
+	.nosotros_home .columna5:nth-child(10){order:10;}
+	.nosotros_home .columna5:nth-child(11){order:12;}
+	.nosotros_home .columna5:nth-child(12){order:11;}
+	.nosotros_home .columna5.pdd80{padding: 50px}
+	.swiper-pagination{display: none;}
+	.swiper-wrapper .main{text-align: center;}
+	.swiper-container p{margin: 0 auto;}
+	.frase_home .columna5:first-child{display: none;}
+	.frase_home .columna5:last-child{width: 100%; text-align: center;}
+	.novios_home .columna33{width: 100%;}	
+	.blog_home .columna33{width: 100%;}
+	.vista_paises .columna5{width: 100%;}
+	figure figcaption::before {width: 150%;}
+	.header.header_continente h3 {font-size: 40px !important;}
+	.header.header_continente h4 {font-size: 20px !important;}
+	ul.migasdepan li > a, ul.migasdepan li > i, ul.migasdepan li > span {padding: 0 5px;}
+	.imagen_galeria.columna33{width: 100%; padding: 30px;}
+	.vistafinal .columna6{width: 100%;}
+	.k2vk.finalview #sticker-sticky-wrapper {width: 100%;}
+	.k2vk.finalview #sticker {position: relative !important;}
+	#formularioviaje{margin-top: 30px; background-image: none !important;}
+	#formularioviaje .moduletable {background-color: transparent;}
+	#formularioviaje .moduletable h5 {color: #000;}
+	.imagen_galeria a {height: 200px;}
+	body.nosotros .nosotros_home .columna5:nth-child(1){order:1;}
+	body.nosotros .nosotros_home .columna5:nth-child(2){order:3;}
+	body.nosotros .nosotros_home .columna5:nth-child(3){order:2;}
+	body.nosotros .nosotros_home .columna5:nth-child(4){order:4;}
+	body.nosotros .nosotros_home .columna5:nth-child(5){order:5;}
+	body.nosotros .nosotros_home .columna5:nth-child(6){order:7;}
+	body.nosotros .nosotros_home .columna5:nth-child(7){order:6;}
+	body.nosotros .nosotros_home .columna5:nth-child(8){order:8;}
+	body.nosotros .nosotros_home .columna5:nth-child(9){order:9;}
+	body.nosotros .nosotros_home .columna5:nth-child(10){order:11;}
+	body.nosotros .nosotros_home .columna5:nth-child(11){order:10;}
+	body.nosotros .nosotros_home .columna5:nth-child(12){order:12;}
+	body.nosotros .nosotros_home .columna5:nth-child(13){order:13;}
+	body.nosotros .nosotros_home .columna5:nth-child(14){order:15;}
+	body.nosotros .nosotros_home .columna5:nth-child(15){order:14;}
+	body.nosotros .nosotros_home .columna5:nth-child(16){order:16;}
+	.cms-contacto .columna33, .cms-contacto .columna6, .cms-contacto .columna4{width: 100%;}
+	.cms-contacto .columna33{padding: 40px 15px;}
+	#jform_captcha > div{margin: 0 auto;}
+	.cms-contacto .columna6, .cms-contacto .columna4{padding: 30px;}
+	.swiper-wrapper {display: inline;}
+	.swiper-slide {display: block; text-align: center;}
+	.swiper-container {height: auto;}
+	.swiper-slide .vertical {position: relative; transform: none; max-height: none;}
+}
+
+/*--------------------------------------------------------------*/
+/*-----------------------MEDIDAS MINIMAS------------------------*/
+/*--------------------------------------------------------------*/
+@media screen and (max-width: 500px) 
+{
+	.sidr{height: 100vh !important; color: #222;}
+	.sidr li a {line-height: 40px;}
+	.sidr .sidr-inner .nav {top: 20px; left: 0; max-height: none; transform: none;}
+	body.mantenimiento img{max-width: 100%;}
+	body.mantenimiento h1{font-size: 20px;}
+	body.mantenimiento h2{font-size: 17px;}
+	.contacto_derecha{display: none;}
+	.mas{display: none;}
+	body.home .portada h2 {padding: 0;}
+	/*header{padding: 0; background-color: rgba(255,255,255,1); width: 100%; box-shadow: 0 0 24px rgba(0,0,0,0.15);}*/
+	.portada .main{text-align: center;}
+	.portada .ancla{padding-top: 15px;}
+	.swiper-wrapper .pdd80-30{padding: 30px;}
+	h6{padding-bottom: 0; margin: 0; font-size: 19px;}
+	h3{padding-bottom: 0; font-size: 32px !important;}
+	.frase_home .pdd100-30{padding: 50px 30px;}
+	footer .logo img {max-width: 250px;}
+	.sidr{width: 245px;}
+	.sidr.left {left: -245px;}
+	header.activo {left: 245px;top: 0;}
+	.grid figure h5 {padding: 20px 20px 100px 20px; font-size: 18px;}
+	.grid figure h5 span {display: none;}
+	.grid figure {height: 250px;}
+	.vistafinal .pdd80-15 {padding: 30px 15px;}
+	#sticker i, #sticker span {display: none;}
+	#formularioviaje {margin-top: 0;}
+	#formularioviaje .moduletable {padding: 0;}
+	.nosotros_home .columna5.pdd80 {padding: 50px 20px;}
+	.nosotros_home .pdd80-30 {padding-bottom: 0;}
+	.contenidofinal .columna8{width: 100%; order: 2}
+	.contenidofinal .columna2{width: 100%; order: 1}
+	.contenidofinal .columna2 br{display: none;}
+	.contenidofinal i {padding-bottom: 10px 5px;}
+	.contact-form .columna5{width: 100%;}
+	.contact-form #jform_captcha {transform: scale(0.76); transform-origin: 0 0;}
+	.contactofotos .taright {text-align: center;}
+	*{background-attachment: initial;}
+}

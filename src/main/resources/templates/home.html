@@ -1,60 +1,404 @@
 <html>
-<head th:replace="fragments/index::head"></head>
-<body>
+<head>
+  <title>Viajes Gala</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link rel="icon" th:href="@{/images/favicon.png}" href="../static/images/favicon.png">
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  
+  <link rel="stylesheet" th:href="@{/css/cookiealert.css}" href="../static/css/cookiealert.css">
+  <link rel="stylesheet" th:href="@{/css/rokbox.css}" href="../static/css/rokbox.css" />  
+  <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="../static/css/font-awesome.min.css" />
+  <link rel="stylesheet" th:href="@{/css/animate.css}" href="../static/css/animate.css" />
+  <link rel="stylesheet" th:href="@{/css/flaticon.css}" href="../static/css/flaticon.css" />
+  <link rel="stylesheet" th:href="@{/css/swiper.min.css}" href="../static/css/swiper.min.css" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" />
+  <link rel="stylesheet" th:href="@{/css/responsive.css}" href="../static/css/responsive.css" />
+  
+  <script th:src="${'/viajesgala/webjars/jquery/3.3.1-1/jquery.min.js'}" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script th:src="${'/viajesgala/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js'}" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>     
+  <!--  <script th:src="${'/viajesgala/js/k2.frontend.js'}" src="../static/js/k2.frontend.js" type="text/javascript"></script>
+  -->   
+  <script th:src="${'/viajesgala/js/caption.js'}" src="../static/js/caption.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/mootools-core.js'}" src="../static/js/mootools-core.js" type="text/javascript"></script>   
+  <script th:src="${'/viajesgala/js/core.js'}" src="../static/js/core.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/mootools-more.js'}" src="../static/js/mootools-more.js" type="text/javascript"></script>
+  <!--<script th:src="${'/viajesgala/js/rokbox.js'}" src="../static/js/rokbox.js" type="text/javascript"></script>
+  -->
+  <script th:src="${'/viajesgala/js/jcookie.js'}" src="../static/js/jcookie.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/wow.js'}" src="../static/js/wow.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/jquery.sticky.js'}" src="../static/js/jquery.sticky.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/swiper.jquery.min.js'}" src="../static/js/swiper.jquery.min.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/swiper.min.js'}" src="../static/js/swiper.min.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/sidr.js'}" src="../static/js/sidr.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/global.js'}" src="../static/js/global.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/recaptcha.min.js'}" src="../static/js/recaptcha.min.js" type="text/javascript"></script>
+  <script th:src="${'/viajesgala/js/api.js'}" src="../static/js/api.js" type="text/javascript"></script>
+ 
+</head>
 
-<script>new WOW().init();</script>
+<body class="home relative">
 
 <script>
+/* 
 $(document).ready(function() {
-	
+	var $item = $('.carousel-item');
+	var $wHeight = $(window).height();
+	$item.eq(0).addClass('active');
+	$item.height($wHeight);
+	$item.addClass('full-screen');
+
+	$('.carousel img').each(function() {
+	  var $src = $(this).attr('src');
+	  var $color = $(this).attr('data-color');
+	  $(this).parent().css({
+	    'background-image' : 'url(' + $src + ')',
+	    'background-color' : $color
+	  });
+	  $(this).remove();
+	});
+
 	$(window).on('resize', function (){
 	  $wHeight = $(window).height();
 	  $item.height($wHeight);
 	});
 
-	 $("#sidebar").mCustomScrollbar({
-         theme: "minimal"
-     });
-
-     $('#dismiss').on('click', function () {
-         $('#sidebar').removeClass('active');
-     });
-
-     $('#sidebarCollapse').on('click', function () {
-         $('#sidebar').addClass('active');
-         $('.collapse.in').toggleClass('in');
-     });
-	
-});
+	$('.carousel').carousel({
+	  interval: 6000,
+	  pause: "false"
+	});
+}); */
 
 </script>
 
-<!-- COOKIES -->
-<div class="alert alert-dismissible text-center cookiealert" role="alert">
-    <div class="cookiealert-container">
-        <b>Te gustan las cookies?</b> &#x1F36A; Usamos cookies para asegurar la mejor experiencia en nuestro website. <a href="http://cookiesandyou.com/" target="_blank">Saber más</a>
+<!------------------------------------------------------------------------------------>
+<header class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+	<div class="menu">
+    	<div class="launch">
+        	<span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+	</div>
+	
+	<!--  
+    <a class="logo" href="/">
+    	<img src="/viajesgala/images/logo.png">
+    </a>
+    -->
+    
+    <div style="display: none;">        
+    	<div class="moduletable_menu">
+			<ul class="nav menu">
+				<li style="width:100%" class="item-101 default current active">
+					<a href="/">Inicio</a>
+				</li>
+				<li style="width:100%" class="item-103">
+					<a href="/africa.html">África</a>
+				</li>
+				<li style="width:100%" class="item-104">
+					<a href="/america.html">América</a>
+				</li>
+				<li style="width:100%" class="item-105">
+					<a href="/asia.html">Asia</a>
+				</li>
+				<li style="width:100%" class="item-106">
+					<a href="/europa.html">Europa</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
 
-        <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
-            Acepto
-        </button>
-    </div>
+<!------------------------------------------------------------------------------------>
+<div class="fila">
+	<div class="bLeft columna3"></div>
+
+	<div class="columna10">
+    	<div id="system-message-container"></div>
+            
+		<div class="item-pagehome" itemscope="">
+			<meta itemprop="inLanguage" content="es-ES">
+		
+			<div itemprop="articleBody">
+			
+				<!------------------------------------------------------------------------------------>
+				<div class="portada">
+					<video autoplay="" loop="loop" preload="auto" muted="muted">
+						<source th:src="${'/viajesgala/videos/video2.mp4'}" src="../static/videos/video2.mp4" type="video/mp4">
+					</video>
+					<canvas class="canvas" style="display: none;"></canvas>
+					<div class="video-timeline js-timeline">
+						<div class="video-timeline-passed js-timeline-passed"></div>
+					</div>
+					<script type="text/javascript">
+						var isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
+					    if (isIOS) 
+					    {
+					        var canvasVideo = new CanvasVideoPlayer({
+					            videoSelector: 'video',
+					            canvasSelector: '.canvas',
+					            timelineSelector: false,
+					            autoplay: true,
+					            makeLoop: true,
+					            pauseOnClick: false,
+					            audio: false
+					        });
+					    }
+					    else {
+					        document.querySelectorAll('.canvas')[0].style.display = 'none';
+					    }
+					</script>
+					
+					<div class="bg_oscuro"></div>
+					<div class="contacto_derecha wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+						<div class="rota">	
+							<span style="color:black; font-weight: bold;font-size:15px;"><b>+34 953 034 333</b></span>
+							<a href="/contacto.html" class="btn btn-primary">Contáctanos</a>
+						</div>
+						<div class="redes_home" style="">
+							<a href="https://es-es.facebook.com/viajesgalamanchareal/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<a href="https://twitter.com/chiquigala?lang=es" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							<a href="/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					
+					<div class="vertical">
+						<div class="main wow bounceInRight" style="visibility: visible; animation-name: bounceInRight;">
+							<h1>Bienvenido a Viajes Gala</h1>
+							<h2>Aquí comienza el viaje de tus sueños</h2>
+							<a data-ancla="#etapas" style="color:white" class="ancla btn btn-primary">Empieza tu viaje</a>
+						</div>
+					</div>
+		
+					<div class="mas">
+						<div class="mouse ancla" data-ancla="#etapas">
+				        	
+				        </div>
+				    </div>	
+				</div>
+	
+				<!------------------------------------------------------------------------------------>
+				<div id="etapas" class="etapas" style="border:0px solid">
+					<div class="main fila pdd80-15">
+						<div class="columna2new pdd15 tacenter vacenter">
+							<span class="desc" style="align:center;width:50px;height:50px;margin-left:44%;border:0px solid #6E6E6E;background-image: url('/viajesgala/images/clientes_pequeno.png');"></span>						
+							<h4>Queremos conocer a nuestros clientes</h4>
+							<span class="desc">Contacta con nosotros para que podamos hablar y conocerte mejor. Así sabremos vuestros gustos, presupuesto, y demás factores que se cumplirán en vuestro viaje</span>
+						</div>
+						
+						<div class="columna05 tacenter vacenter">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</div>
+						
+						<div class="columna2new pdd15 tacenter vacenter">
+							<span class="desc" style="align:center;width:50px;height:50px;margin-left:44%;border:0px solid #6E6E6E;background-image: url('/viajesgala/images/viaje_pequeno.png');"></span>
+							<h4>Crear un viaje totalmente personalizado</h4>
+							<span class="desc">Diseñaremos un viaje único y especial para vosotros, diseñado completamente al milímetro, en el que os aseguramos que viviréis la mayor experiencia de vuestra vida</span>
+						</div>	
+							
+						<!--  <div class="columna05 tacenter vacenter">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</div>
+						
+						<div class="columna3 pdd15 tacenter vacenter">
+							<span class="desc" style="align:center;width:50px;height:50px;margin-left:44%;border:0px solid #6E6E6E;background-image: url('/viajesgala/images/clientes_pequeno.png');"></span>
+							<h4>Para todo tipo de viajeros y presupusetos</h4>
+							<span class="desc">Diseñamos itinerarios para todo tipo de viajeros y presupuestos. Nos encanta combinar países, culturas, tradiciones, religiones... Podemos viajar todos</span>
+						</div>-->
+						
+					</div>
+				</div>
+				
+				<!------------------------------------------------------------------------------------>
+				<div class="nosotros_home">
+					<div class="main fila pdd80-30 pdd-no-top">
+						<div class="columna5 bg foto1 bg wow fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+						<div class="columna5 tacenter pdd80">
+							<span class="num">1</span>
+							<h5>Te prestamos una atención personal</h5>
+							<span class="desc">En Candal Tours disfrutarás de un trato personal. Nuestro objetivo siempre es conseguir un viaje adaptado completamente a ti</span>
+						</div>
+						<div class="columna5 tacenter pdd80">
+							<span class="num">2</span>
+							<h5>Ajustamos el precio a cada cliente</h5>
+							<span class="desc">Nos adaptamos a tus necesidades. Por ello, podemos conseguir ajustar los precios para que se ajuste a tu presupuesto</span>
+						</div>
+						<div class="columna5 bg foto2 bg wow fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+						<div class="columna5 bg foto3 bg wow fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+						<div class="columna5 tacenter pdd80">
+							<span class="num">3</span>
+							<h5>Te acompañamos en tu gran viaje</h5>
+							<span class="desc">Queremos serte de ayuda en todo momento. En Candal Tours estaremos a tu disposición en todo momento antes y durante tu viaje</span>
+						</div>
+						<div class="columna5 tacenter pdd80">
+							<span class="num">4</span>
+							<h5>Más de 20 años de experiencia</h5>
+							<span class="desc">En nuestros más de 20 años en el sector, Candal Tours ha conseguido aprender y mejorar hasta alcanzar la excelencia</span>
+						</div>
+						<div class="columna5 bg foto4 bg wow fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+						<div class="columna5 bg foto5 bg wow fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+						<div class="columna5 tacenter pdd80">
+							<span class="num">5</span>
+							<h5>Esto es solo una pequeña muestra</h5>
+							<span class="desc">Los viajes que te presentamos en nuestra web son solo una pequeña representación de lo que hacemos, ven a vernos y descubre más</span>
+						</div>
+						<div class="columna5 tacenter pdd80">
+							<span class="num">6</span>
+							<h5>Financiamos tu viaje</h5>
+							<span class="desc">Nos encargamos de facilitartelo todo, para ello te ofrecemos una financiazión de 3, 6, 10, o 12 meses.</span>
+						</div>
+						<div class="columna5 bg foto7 bg wow fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
+					</div>
+				</div>
+				
+				<!------------------------------------------------------------------------------------>
+				<!--  <div class="swiper-container swiper-container-vertical swiper-container-autoheight">
+				    <div class="swiper-wrapper" style="height: 446px;">
+				        <div class="swiper-slide africa bg swiper-slide-active" style="height: 446px;">
+				        	<div class="vertical">
+					        	<div class="main pdd80-30">
+					        		<h6>Destinos</h6>
+					        		<h3>ÁFRICA</h3>
+					        		<p>África es un continente lleno de secretos. Cuenta con una amplia diversidad de flora y fauna que encantarán a los más aventureros, pero también puede presumir de grandes ciudades con encanto y playas de arena fina y agua cristalina. Un continente donde disfrutar de la diversidad de Kenia, las Seychelles, Zanzíbar, el Kilimanjaro u otros increíbles destinos.</p>
+					        		<a href="/africa.html" class="btn btn-primary">Descubre África</a>
+					        	</div>
+					        </div>
+				        </div>
+				        <div class="swiper-slide america bg swiper-slide-next" style="height: 446px;">
+				        	<div class="vertical">
+					        	<div class="main pdd80-30">
+					        		<h6>Destinos</h6>
+					        		<h3>AMÉRICA</h3>
+					        		<p>Como ya sabrás, América es el segundo continente más grande del mundo, y a su vez, se divide en tres áreas: América del Norte, América Central y América del Sur. Un conjunto de 35 países que agrupan enormes ciudades, impresionantes paisajes naturales y vestigios de antiguas civilizaciones.</p>
+					        		<a href="/america.html" class="btn btn-primary">Descubre América</a>
+					        	</div>
+					        </div>
+				    	</div>
+				    	<div class="swiper-slide asia bg" style="height: 446px;">
+				        	<div class="vertical">
+					        	<div class="main pdd80-30">
+					        		<h6>Destinos</h6>
+					        		<h3>ASIA</h3>
+					        		<p>"Una vez pises Asia no tendrás escapatoria" nos comenta todo el que visita este continente. Asia está llena de lugares increíbles y altos contrastes que no te dejarán indiferente. Conocerás una realidad muy distinta a la nuestra, de la que aprenderás muchísimo. Viajar a sitios tan ricos culturalmente y llenos de historia no hará otra cosa que enriquecerte como persona.</p>
+					        		<a href="/asia.html" class="btn btn-primary">Descubre Asia</a>
+					        	</div>
+					        </div>
+				        </div>
+				        <div class="swiper-slide europa bg" style="height: 446px;">
+				        	<div class="vertical">
+					        	<div class="main pdd80-30">
+					        		<h6>Destinos</h6>
+					        		<h3>EUROPA</h3>
+					        		<p>Europa ofrece una variedad de experiencias de viaje tanto para visitas largas como cortas. Dada la variedad de arquitectura, paisajes, climas y puntos de referencia históricos dentro de Europa, no es una exageración decir que casi cualquier persona podría encontrar algo para disfrutar.</p>
+					        		<a href="/europa.html" class="btn btn-primary">Descubre Europa</a>
+					        	</div>
+					        </div>
+				        </div>
+				        <div class="swiper-slide oceania bg" style="height: 446px;">
+				        	<div class="vertical">
+					        	<div class="main pdd80-30">
+					        		<h6>Destinos</h6>
+					        		<h3>OCEANÍA</h3>
+					        		<p>Bucear junto a la Gran barrera de coral, ver canguros y koales en amplias llanuras, relajarse en una de las paradisíacas islas Fiji, recorrer el gran desierto de Simpson... Oceanía es, sencillamente, otro mundo. Oceanía, ese gran desconocido, ese continente de paisajes imposibles, rincones de ensueño y lugares de naturaleza exquisita.</p>
+					        		<a href="/oceania.html" class="btn btn-primary">Descubre Oceanía</a>
+					        	</div>
+					        </div>
+				        </div>
+				        <div class="swiper-slide islas_exoticas bg" style="height: 446px;">
+				        	<div class="vertical">
+					        	<div class="main pdd80-30">
+					        		<h6>Destinos</h6>
+					        		<h3>ISLAS EXÓTICAS</h3>
+					        		<p>Te animamos a que descubras auténticos paraísos en la tierra donde olvidarte durante unos días de la rutina. Islas con playas de arena fina, lagunas de agua cristalina, arrecifes de coral, abundante fauna submarina, una frondosa vegetación tropical a pocos metros de la costa... Estos son solo algunos de los ingredientes que encontrarás en islas exóticas.</p>
+					        		<a href="/islas-exoticas.html" class="btn btn-primary">Descubre Islas Exóticas</a>
+					        	</div>
+					        </div>
+				        </div>
+				    </div>
+				    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+				</div>
+				-->
+				
+				<!------------------------------------------------------------------------------------>
+				<!--  <div class="frase_home">
+					<div class="main fila tacenter">
+						<div class="columna5 relative">
+							<img src="/images/estructura/chica_frase.png">
+						</div>
+						<div class="columna5 relative pdd100-30 taright">
+							<h4>No solo hacemos viajes</h4>
+							<h5>Hacemos viajeros</h5>
+							<a class="btn btn-primary" href="/contacto.html">Contáctanos</a>
+						</div>
+					</div>
+				</div>
+				<div class="novios_home">
+					<div class="main pdd100-15 tacenter">
+						<h3 class="pdd15 tacenter">Expertos en lunas de miel</h3>
+						<span class="desc pdd15 tacenter">Vuestra luna de miel es el momento ideal para realizar el viaje con el que siempre habíais soñado, y en Candal Tours os ayudaremos a cumplir vuestros deseos. Os prepararémos un viaje a medida a cualquier destino del mundo, y del estilo que prefiráis. Conseguiremos que viváis un viaje único que guardaréis en vuestra memoria durante el resto de vuestras vidas. No dudéis en poneros en contacto con nosotros y explicarnos cuáles son vuestros deseos, nosotros nos encargaremos de cumplirlos.</span>
+						<div class="fila">
+							<div class="columna33 tacenter pdd15">
+								<h5>Wedding Awards <b>2016</b></h5>
+								<img src="/images/estructura/premio1.png" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+							</div>
+							<div class="columna33 tacenter pdd15">
+								<h5>Wedding Awards <b>2017</b></h5>
+								<img src="/images/estructura/premio2.png" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+							</div>
+							<div class="columna33 tacenter pdd15">
+								<h5>Wedding Awards <b>2018</b></h5>
+								<img src="/images/estructura/premio3.png" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+							</div>
+						</div>
+						<a href="https://www.bodas.net/viaje-de-novios/candal-tours--e68731/opiniones" class="btn btn-primary" target="_blank">Ver opiniones reales</a>
+					</div>
+				</div>-->
+			</div>
+		</div>
+
+	</div>
+        
+    <div class="bRight columna3"></div>        
 </div>
-<!-- /COOKIES -->
 
-<script th:src="@{/js/cookiealert-standalone.js}" src="../static/js/cookiealert-standalone.js"></script>
-
-<div th:replace="fragments/index::menu"></div>
-<div th:replace="fragments/index::botonMenu"></div>
-
-<div class="overlay wow fadeInUp">  
-  <h1>Bienvenido a Viajes Gala</h1>
-  <h2>Aquí comienza el viaje de tus sueños</h2>
-  <a class="btn btn-lg btn-primary text-white wow pulse" data-wow-iteration="infinite" data-wow-duration="1500ms">Empieza tu viaje</a>
+<!-------------------------------------------------------------------------------------->
+<div class="fullwidth">
+	
+	<div class="moduletable">
+		<div class="custom">
+			<div class="contacta_home">
+				<div class="main pdd60-30 tacenter">
+					<h3>¿Estás listo para la aventura?</h3>
+					<p class="subt">Contacta con nosotros para que podamos planear todo</p>
+					<a href="/contacto.html" class="btn btn-primary">Atrévete</a>
+				</div>
+			</div>
+		</div>
+	</div>	
 </div>
-
-<video autoplay muted loop id="myVideo">
-  <source th:src="${'/viajesgala/videos/Beatiful_rocks_in_the_beach.mp4'}" src="../static/videos/Beatiful_rocks_in_the_beach.mp4" type="video/mp4">
-</video>
+    
+<!-------------------------------------------------------------------------------------->
+<footer> 
+	<div class="main pdd60-30 tacenter">
+    	<a class="logo" href="/">
+        	<img style="padding-bottom:10px;" src="/viajesgala/images/logo_gala.png">
+		</a>
+		<p>TÍTULO AGENCIA: XG360</p>
+		<div class="bajo">
+			<ul>
+            	<li><a href="/aviso-legal.html">Aviso Legal</a></li>
+                <li><a href="/politica-de-privacidad.html">Política de Privacidad y Cookies</a></li>
+			</ul>
+			<a href="https://candaltours.com/index.php?option=com_jmap&view=sitemap" target="_blank">Sitemap</a><br>
+            <a href="http://www.verkia.com" target="_blank">Desarrollado por Verkia ®</a>
+		</div>
+	</div>
+</footer>
 
 </body>
 </html>
