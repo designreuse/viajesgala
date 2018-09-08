@@ -42,38 +42,6 @@
 
 <body class="home relative">
 
-<script>
-/* 
-$(document).ready(function() {
-	var $item = $('.carousel-item');
-	var $wHeight = $(window).height();
-	$item.eq(0).addClass('active');
-	$item.height($wHeight);
-	$item.addClass('full-screen');
-
-	$('.carousel img').each(function() {
-	  var $src = $(this).attr('src');
-	  var $color = $(this).attr('data-color');
-	  $(this).parent().css({
-	    'background-image' : 'url(' + $src + ')',
-	    'background-color' : $color
-	  });
-	  $(this).remove();
-	});
-
-	$(window).on('resize', function (){
-	  $wHeight = $(window).height();
-	  $item.height($wHeight);
-	});
-
-	$('.carousel').carousel({
-	  interval: 6000,
-	  pause: "false"
-	});
-}); */
-
-</script>
-
 <!-- COOKIES -->
 <div class="alert alert-dismissible text-center cookiealert" role="alert">
     <div class="cookiealert-container">
@@ -138,8 +106,7 @@ $(document).ready(function() {
 						</div>
 						<div class="redes_home" style="">
 							<a href="https://es-es.facebook.com/viajesgalamanchareal/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-							<a href="https://twitter.com/chiquigala?lang=es" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-							<a href="/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+							<a href="https://twitter.com/chiquigala?lang=es" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>							
 						</div>
 					</div>
 					
@@ -231,109 +198,7 @@ $(document).ready(function() {
 						<div class="columna5 bg foto7 bg wow fadeIn" style="visibility: visible; animation-name: fadeIn;"></div>
 					</div>
 				</div>
-				
-				<!------------------------------------------------------------------------------------>
-				<!--  <div class="swiper-container swiper-container-vertical swiper-container-autoheight">
-				    <div class="swiper-wrapper" style="height: 446px;">
-				        <div class="swiper-slide africa bg swiper-slide-active" style="height: 446px;">
-				        	<div class="vertical">
-					        	<div class="main pdd80-30">
-					        		<h6>Destinos</h6>
-					        		<h3>ÁFRICA</h3>
-					        		<p>África es un continente lleno de secretos. Cuenta con una amplia diversidad de flora y fauna que encantarán a los más aventureros, pero también puede presumir de grandes ciudades con encanto y playas de arena fina y agua cristalina. Un continente donde disfrutar de la diversidad de Kenia, las Seychelles, Zanzíbar, el Kilimanjaro u otros increíbles destinos.</p>
-					        		<a href="/africa.html" class="btn btn-primary">Descubre África</a>
-					        	</div>
-					        </div>
-				        </div>
-				        <div class="swiper-slide america bg swiper-slide-next" style="height: 446px;">
-				        	<div class="vertical">
-					        	<div class="main pdd80-30">
-					        		<h6>Destinos</h6>
-					        		<h3>AMÉRICA</h3>
-					        		<p>Como ya sabrás, América es el segundo continente más grande del mundo, y a su vez, se divide en tres áreas: América del Norte, América Central y América del Sur. Un conjunto de 35 países que agrupan enormes ciudades, impresionantes paisajes naturales y vestigios de antiguas civilizaciones.</p>
-					        		<a href="/america.html" class="btn btn-primary">Descubre América</a>
-					        	</div>
-					        </div>
-				    	</div>
-				    	<div class="swiper-slide asia bg" style="height: 446px;">
-				        	<div class="vertical">
-					        	<div class="main pdd80-30">
-					        		<h6>Destinos</h6>
-					        		<h3>ASIA</h3>
-					        		<p>"Una vez pises Asia no tendrás escapatoria" nos comenta todo el que visita este continente. Asia está llena de lugares increíbles y altos contrastes que no te dejarán indiferente. Conocerás una realidad muy distinta a la nuestra, de la que aprenderás muchísimo. Viajar a sitios tan ricos culturalmente y llenos de historia no hará otra cosa que enriquecerte como persona.</p>
-					        		<a href="/asia.html" class="btn btn-primary">Descubre Asia</a>
-					        	</div>
-					        </div>
-				        </div>
-				        <div class="swiper-slide europa bg" style="height: 446px;">
-				        	<div class="vertical">
-					        	<div class="main pdd80-30">
-					        		<h6>Destinos</h6>
-					        		<h3>EUROPA</h3>
-					        		<p>Europa ofrece una variedad de experiencias de viaje tanto para visitas largas como cortas. Dada la variedad de arquitectura, paisajes, climas y puntos de referencia históricos dentro de Europa, no es una exageración decir que casi cualquier persona podría encontrar algo para disfrutar.</p>
-					        		<a href="/europa.html" class="btn btn-primary">Descubre Europa</a>
-					        	</div>
-					        </div>
-				        </div>
-				        <div class="swiper-slide oceania bg" style="height: 446px;">
-				        	<div class="vertical">
-					        	<div class="main pdd80-30">
-					        		<h6>Destinos</h6>
-					        		<h3>OCEANÍA</h3>
-					        		<p>Bucear junto a la Gran barrera de coral, ver canguros y koales en amplias llanuras, relajarse en una de las paradisíacas islas Fiji, recorrer el gran desierto de Simpson... Oceanía es, sencillamente, otro mundo. Oceanía, ese gran desconocido, ese continente de paisajes imposibles, rincones de ensueño y lugares de naturaleza exquisita.</p>
-					        		<a href="/oceania.html" class="btn btn-primary">Descubre Oceanía</a>
-					        	</div>
-					        </div>
-				        </div>
-				        <div class="swiper-slide islas_exoticas bg" style="height: 446px;">
-				        	<div class="vertical">
-					        	<div class="main pdd80-30">
-					        		<h6>Destinos</h6>
-					        		<h3>ISLAS EXÓTICAS</h3>
-					        		<p>Te animamos a que descubras auténticos paraísos en la tierra donde olvidarte durante unos días de la rutina. Islas con playas de arena fina, lagunas de agua cristalina, arrecifes de coral, abundante fauna submarina, una frondosa vegetación tropical a pocos metros de la costa... Estos son solo algunos de los ingredientes que encontrarás en islas exóticas.</p>
-					        		<a href="/islas-exoticas.html" class="btn btn-primary">Descubre Islas Exóticas</a>
-					        	</div>
-					        </div>
-				        </div>
-				    </div>
-				    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
-				</div>
-				-->
-				
-				<!------------------------------------------------------------------------------------>
-				<!--  <div class="frase_home">
-					<div class="main fila tacenter">
-						<div class="columna5 relative">
-							<img src="/images/estructura/chica_frase.png">
-						</div>
-						<div class="columna5 relative pdd100-30 taright">
-							<h4>No solo hacemos viajes</h4>
-							<h5>Hacemos viajeros</h5>
-							<a class="btn btn-primary" href="/contacto.html">Contáctanos</a>
-						</div>
-					</div>
-				</div>
-				<div class="novios_home">
-					<div class="main pdd100-15 tacenter">
-						<h3 class="pdd15 tacenter">Expertos en lunas de miel</h3>
-						<span class="desc pdd15 tacenter">Vuestra luna de miel es el momento ideal para realizar el viaje con el que siempre habíais soñado, y en Candal Tours os ayudaremos a cumplir vuestros deseos. Os prepararémos un viaje a medida a cualquier destino del mundo, y del estilo que prefiráis. Conseguiremos que viváis un viaje único que guardaréis en vuestra memoria durante el resto de vuestras vidas. No dudéis en poneros en contacto con nosotros y explicarnos cuáles son vuestros deseos, nosotros nos encargaremos de cumplirlos.</span>
-						<div class="fila">
-							<div class="columna33 tacenter pdd15">
-								<h5>Wedding Awards <b>2016</b></h5>
-								<img src="/images/estructura/premio1.png" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-							</div>
-							<div class="columna33 tacenter pdd15">
-								<h5>Wedding Awards <b>2017</b></h5>
-								<img src="/images/estructura/premio2.png" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-							</div>
-							<div class="columna33 tacenter pdd15">
-								<h5>Wedding Awards <b>2018</b></h5>
-								<img src="/images/estructura/premio3.png" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-							</div>
-						</div>
-						<a href="https://www.bodas.net/viaje-de-novios/candal-tours--e68731/opiniones" class="btn btn-primary" target="_blank">Ver opiniones reales</a>
-					</div>
-				</div>-->
+							
 			</div>
 		</div>
 
