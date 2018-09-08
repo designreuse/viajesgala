@@ -74,45 +74,21 @@ $(document).ready(function() {
 
 </script>
 
-<!------------------------------------------------------------------------------------>
-<header class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-	<div class="menu">
-    	<div class="launch">
-        	<span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-	</div>
-	
-	<!--  
-    <a class="logo" href="/">
-    	<img src="/viajesgala/images/logo.png">
-    </a>
-    -->
-    
-    <div style="display: none;">        
-    	<div class="moduletable_menu">
-			<ul class="nav menu">
-				<li style="width:100%" class="item-101 default current active">
-					<a href="/">Inicio</a>
-				</li>
-				<li style="width:100%" class="item-103">
-					<a href="/africa.html">África</a>
-				</li>
-				<li style="width:100%" class="item-104">
-					<a href="/america.html">América</a>
-				</li>
-				<li style="width:100%" class="item-105">
-					<a href="/asia.html">Asia</a>
-				</li>
-				<li style="width:100%" class="item-106">
-					<a href="/europa.html">Europa</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</header>
+<!-- COOKIES -->
+<div class="alert alert-dismissible text-center cookiealert" role="alert">
+    <div class="cookiealert-container">
+        <b>Te gustan las cookies?</b> &#x1F36A; Usamos cookies para asegurar la mejor experiencia en nuestro website. <a href="http://cookiesandyou.com/" target="_blank">Saber más</a>
+
+        <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+            Acepto
+        </button>
+    </div>
+</div>
+<!-- /COOKIES -->
+
+<script th:src="@{/js/cookiealert-standalone.js}" src="../static/js/cookiealert-standalone.js"></script>
+
+<div th:replace="fragments/index::menu"></div>
 
 <!------------------------------------------------------------------------------------>
 <div class="fila">
@@ -171,7 +147,7 @@ $(document).ready(function() {
 						<div class="main wow bounceInRight" style="visibility: visible; animation-name: bounceInRight;">
 							<h1>Bienvenido a Viajes Gala</h1>
 							<h2>Aquí comienza el viaje de tus sueños</h2>
-							<a data-ancla="#etapas" style="color:white" class="ancla btn btn-primary">Empieza tu viaje</a>
+							<a data-ancla="#etapas" style="color:white" class="ancla btn btn-primary wow pulse" data-wow-iteration="infinite" data-wow-duration="1500ms">Empieza tu viaje</a>
 						</div>
 					</div>
 		

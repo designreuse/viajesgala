@@ -19,33 +19,32 @@
   <link rel="icon" th:href="@{/images/favicon.png}" href="../static/images/favicon.png">
 </head>
 
-<header class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;" th:fragment="menu">
-	<div class="menu">
-    	<div class="launch">
-        	<span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+<!-- Navigation -->
+<div class="wrapper" th:fragment="menu_old">
+  <nav id="sidebar">
+    <div id="dismiss">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+    <div class="sidebar-header">
+		<h3>Viajes Gala</h3>
 	</div>
-	
-    <a class="logo" href="/">
-    	<img src="/viajesgala/images/logo_gala.png">
-    </a>
-    
-    <div style="display: none;">        
-    	<div class="moduletable_menu">
-			<ul class="nav menu">
-				<li class="default current active">
-         			<a th:href="@{/}" href="home.html">Página Principal</a>
-      			</li>
-      			<li class="initcap" th:each="category: ${categories}">
-        			<a th:href="@{'/posts/'+${category}}" th:text="${category}">Sobre nosotros</a>
-      			</li>
-      			<li>
-         			<a th:href="@{/contacto}" href="contacto.html">Contacto</a>
-      			</li>
-			</ul>
-		</div>
-	</div>
-</header>
+    <ul class="components">
+      <li class="active">
+         <a th:href="@{/}" href="home.html">Home</a>
+      </li>
+      <li class="initcap" th:each="category: ${categories}">
+        <a th:href="@{'/posts/'+${category}}" th:text="${category}">Sobre nosotros</a>
+      </li>
+      <li>
+         <a th:href="@{/contacto}" href="contacto.html">Contacto</a>
+      </li>
+    </ul>    
+  </nav>
+</div>
+
+<div class="menuCollapse" th:fragment="botonMenu_old">
+  <button type="button" id="sidebarCollapse" class="btn btn-lg btn-primary text-white wow pulse" data-wow-iteration="infinite" data-wow-duration="1500ms">
+    <i class="fas fa-align-left"></i>
+    <span>&nbsp;Menú</span>
+  </button>
+</div>

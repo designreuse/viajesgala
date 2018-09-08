@@ -44,6 +44,26 @@ public class HomeController {
 		return "home";
 	}
 	
+	@GetMapping("/home_old")
+	public String home_old(Model model, HttpSession session) {
+		
+		List<Post> posts = wordPressService.getPosts();
+		Set<String> categoriesSet = new HashSet<>();
+		if (posts != null) {
+			for (Post post: posts) {
+				for (Category category: post.getTerms().getCategory()) {
+					categoriesSet.add(category.getName());
+				}
+			}
+		}
+		List<String> categories = new ArrayList<String>(categoriesSet);
+		model.addAttribute("posts",posts);
+		model.addAttribute("categories",categories);
+		session.setAttribute("categories",categories);
+		
+		return "home_old";
+	}
+	
 	@GetMapping("/posts/{category}")
 	public String posts(Model model,@PathVariable String category, HttpSession session) {
 		List<Post> posts = wordPressService.getPosts();

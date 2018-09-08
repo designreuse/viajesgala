@@ -2,11 +2,11 @@ var j = jQuery.noConflict();
 j(document).ready(function() {
 
 	//Cookies
-	var cookieshtml = '<div class="fondocookies"><div class="cookies"><div class="main fila pdd80"><div class="columna10 pdd15 tacenter"><p>Al continuar navegando por este sitio web aceptas nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p></div><div class="columna10 fila"><div class="columna5 tacenter pdd15"><span class="btn btn-primary aceptar">Aceptar</span></div><div class="columna5 tacenter pdd15"><a href="https://www.google.com/" class="btn btn-primary rechazar">Abandonar página</a></div></div></div></div></div>';
+	/*var cookieshtml = '<div class="fondocookies"><div class="cookies"><div class="main fila pdd80"><div class="columna10 pdd15 tacenter"><p>Al continuar navegando por este sitio web aceptas nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p></div><div class="columna10 fila"><div class="columna5 tacenter pdd15"><span class="btn btn-primary aceptar">Aceptar</span></div><div class="columna5 tacenter pdd15"><a href="https://www.google.com/" class="btn btn-primary rechazar">Abandonar página</a></div></div></div></div></div>';
     if (j.cookie("cookies_aceptacion") != 1)
     {
         j("body").prepend(cookieshtml);
-    }
+    }*/
     
     j(".cookies span.aceptar").click(function(){
         j.cookie('cookies_aceptacion', '1', { expires: 365, path: '/' });
