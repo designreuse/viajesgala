@@ -84,7 +84,12 @@ public class HomeController {
 		
 		return "posts";
 		
-	}	
+	}
+	
+	@GetMapping("/test")
+	public String test() {
+		return "categoria";
+	}
 	
 	@GetMapping("contacto")
 	public String contacto(Model model, HttpSession session) {
