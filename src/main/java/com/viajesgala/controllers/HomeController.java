@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.viajesgala.services.WordPressService;
+import com.viajesgala.utilidades.Utilidades;
 import com.viajesgala.wpjson.Category;
 import com.viajesgala.wpjson.Post;
 
@@ -32,7 +33,7 @@ public class HomeController {
 		if (posts != null) {
 			for (Post post: posts) {
 				for (Category category: post.getTerms().getCategory()) {
-					categoriesSet.add(category.getName());
+					categoriesSet.add(Utilidades.initCap(category.getName()));
 				}
 			}
 		}
@@ -91,6 +92,11 @@ public class HomeController {
 		return "categoria";
 	}
 	
+	/*@GetMapping("test")
+	public String test1() {
+		return "categoria";
+	}
+	*/
 	@GetMapping("contacto")
 	public String contacto(Model model, HttpSession session) {
 		model.addAttribute("categories",session.getAttribute("categories"));
