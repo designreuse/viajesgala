@@ -38,72 +38,78 @@
 
 <body class="asia relative">
 
-  <div th:replace="fragments/index::menu"></div>
+	<div th:replace="fragments/index::menu"></div>
 
-  <!-- MAIN -->
-  <div class="fila">
+  	<!-- MAIN -->
+  	<div class="fila">
+		<div class="columna10">
+      		<div class="header header_continente" style="background-image: url('');">
+        		<video autoplay="" loop="loop" preload="auto" muted="muted">
+					<source th:src="${'/viajesgala/videos/video2.mp4'}" src="../static/videos/video2.mp4" type="video/mp4">
+				</video>
+        		<canvas class="canvas" style="display: none;"></canvas>
+        		<div class="video-timeline js-timeline">
+          			<div class="video-timeline-passed js-timeline-passed"></div>
+        		</div>
+        		<script type="text/javascript">
+	          		var isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
+			        if (isIOS) {
+			        	var canvasVideo = new CanvasVideoPlayer({
+			              videoSelector: "video",
+			              canvasSelector: ".canvas",
+			              timelineSelector: false,
+			              autoplay: true,
+			              makeLoop: true,
+			              pauseOnClick: false,
+			              audio: false
+			            });
+					} 
+			        else{
+	            		document.querySelectorAll(".canvas")[0].style.display = "none";
+			        }
+        		</script>
+        		<div class="bg_oscuro"></div>
+        		<div class="vertical">
+          			<div class="main pdd30 tacenter">
+            			<h3 th:text="${category}">Asia</h3>
+            			<h4 th:text="#{${category}}">Una vez la pises, no tendrás escapatoria</h4>
+            			<a class="ancla btn btn-primary wow fadeIn" data-ancla="#migas" data-wow-delay="6s" style="margin-top: 30px; visibility: visible; animation-delay: 6s; animation-name: fadeIn;">Descubre los destinos</a>
+          			</div>
+        		</div>
+        		<div class="mas">
+          			<div class="mouse ancla" data-ancla="#migas">
+            			<span></span>
+          			</div>
+        		</div>
+      		</div>
+      		
+      		<div id="migas" class="contenedormigas">
+        		<div class="main migas pdd30">
+          			<div class="moduletable">
+            			<ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="migasdepan">
+              				<li>
+                				<a href="/">
+									Inicio
+								</a>
+                				<i class="fa fa-caret-right" aria-hidden="true"></i>
+             				</li>
 
-    <div class="columna10">
-
-      <div class="header header_continente" style="background-image: url('');">
-
-        <video autoplay="" loop="loop" preload="auto" muted="muted">
-		<source th:src="${'/viajesgala/videos/video2.mp4'}" src="../static/videos/video2.mp4" type="video/mp4">
-	</video>
-        <canvas class="canvas" style="display: none;"></canvas>
-        <div class="video-timeline js-timeline">
-          <div class="video-timeline-passed js-timeline-passed"></div>
-        </div>
-        <script type="text/javascript">
-          var isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
-          if (isIOS) {
-            var canvasVideo = new CanvasVideoPlayer({
-              videoSelector: "video",
-              canvasSelector: ".canvas",
-              timelineSelector: false,
-              autoplay: true,
-              makeLoop: true,
-              pauseOnClick: false,
-              audio: false
-            });
-          } else
-            document.querySelectorAll(".canvas")[0].style.display = "none";
-        </script>
-        <div class="bg_oscuro"></div>
-        <div class="vertical">
-          <div class="main pdd30 tacenter">
-            <h3>Asia</h3>
-            <h4>Una vez la pises, no tendrás escapatoria</h4>
-            <a class="ancla btn btn-primary wow fadeIn" data-ancla="#migas" data-wow-delay="6s" style="margin-top: 30px; visibility: visible; animation-delay: 6s; animation-name: fadeIn;">Descubre los destinos</a>
-          </div>
-        </div>
-        <div class="mas">
-          <div class="mouse ancla" data-ancla="#migas">
-            <span></span>
-          </div>
-        </div>
-      </div>
-      <div id="migas" class="contenedormigas">
-        <div class="main migas pdd30">
-          <div class="moduletable">
-
-            <ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="migasdepan">
-              <li>
-                <a href="/">
-				Inicio
-			</a>
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
-              </li>
-
-              <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
-                <span itemprop="name">
-					Asia				</span>
-                <meta itemprop="position" content="1">
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+              				<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
+                				<span itemprop="name">
+									Asia
+								</span>
+                				<meta itemprop="position" content="1">
+              				</li>
+            			</ul>
+          			</div>
+        		</div>
+      		</div>
+      		
+      		
+      		
+      		
+      		
+      		
       <div class="vista_paises">
         <div class="k2vk">
           <!-- Subcategorias -->

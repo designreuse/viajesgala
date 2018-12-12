@@ -45,7 +45,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@GetMapping("/home_old")
+	/*@GetMapping("/home_old")
 	public String home_old(Model model, HttpSession session) {
 		
 		List<Post> posts = wordPressService.getPosts();
@@ -63,9 +63,9 @@ public class HomeController {
 		session.setAttribute("categories",categories);
 		
 		return "home_old";
-	}
+	}*/
 	
-	@GetMapping("/posts/{category}")
+	/*@GetMapping("/posts/{category}")
 	public String posts(Model model,@PathVariable String category, HttpSession session) {
 		List<Post> posts = wordPressService.getPosts();
 		List<Post> postsFiltered = new ArrayList<Post>();
@@ -84,6 +84,29 @@ public class HomeController {
 		model.addAttribute("categories",session.getAttribute("categories"));
 		
 		return "posts";
+		
+	}*/
+	
+	@GetMapping("/posts/{category}")
+	public String posts(Model model,@PathVariable String category, HttpSession session) {
+		List<Post> posts = wordPressService.getPosts();
+		List<Post> postsFiltered = new ArrayList<Post>();
+		
+		if (posts != null) {			
+			for (Post post:posts) {				
+				List<Category> categories = post.getTerms().getCategory().stream().filter(c->c.getName().toUpperCase().equals(category.toUpperCase())).collect(Collectors.toList());
+				if (categories!=null && categories.size()>0) {
+					postsFiltered.add(post);
+				}
+				
+			}
+		}
+		
+		model.addAttribute("posts",postsFiltered);
+		model.addAttribute("category",category);
+		model.addAttribute("categories",session.getAttribute("categories"));
+		
+		return "categoria";
 		
 	}
 	
