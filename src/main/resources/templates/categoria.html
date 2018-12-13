@@ -71,8 +71,8 @@
         		<div class="bg_oscuro"></div>
         		<div class="vertical">
           			<div class="main pdd30 tacenter">
-            			<h3 th:text="${category}">Asia</h3>
-            			<h4 th:text="#{${category}}">Una vez la pises, no tendrás escapatoria</h4>
+            			<h3 th:text="${category}">Asia</h3>            			
+            			<h4 th:with="vTexto=${#strings.replace(category,' ','')}+'.texto'" th:text="#{${vTexto}}">Una vez la pises, no tendrás escapatoria</h4>
             			<a class="ancla btn btn-primary wow fadeIn" data-ancla="#migas" data-wow-delay="6s" style="margin-top: 30px; visibility: visible; animation-delay: 6s; animation-name: fadeIn;">Descubre los destinos</a>
           			</div>
         		</div>
