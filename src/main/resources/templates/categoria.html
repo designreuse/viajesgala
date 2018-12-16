@@ -95,7 +95,7 @@
              				</li>
 
               				<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
-                				<span itemprop="name">
+                				<span itemprop="name" th:text="${category}">
 									Asia
 								</span>
                 				<meta itemprop="position" content="1">
@@ -105,234 +105,30 @@
         		</div>
       		</div>
       		
+      		<div th:if="${not #lists.isEmpty(posts)}" class="vista_paises">
+      			<div class="k2vk">
+      				<div class="main fila pdd80-30">
+      					<div th:each="post: ${posts}" class="conten_ima_paises columna5">
+              				<a class="subCategoryImage" href="/asia/pais/30-camboya.html"><!-- Poner link al post concreto -->
+                				<div class="grid">
+                  					<figure th:if="${not #lists.isEmpty(post.imagesSrc)}" th:style="'background-image:url(' + ${post.imagesSrc[0]} + ');'">
+                    					<div class="overlay">
+                      						<figcaption>
+                        					<h5 th:text="${post.title}">Título del post</h5>
+                        					<p>Pulsa para ver el contenido</p>
+                      						</figcaption>
+                    					</div>
+                  					</figure>
+                				</div>
+              				</a>
+            			</div>
+      				</div>      			
+      			</div>
       		
-      		
-      		
-      		
-      		
-      <div class="vista_paises">
-        <div class="k2vk">
-          <!-- Subcategorias -->
-          <div class="main fila pdd80-30">
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/30-camboya.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/camboya.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Camboya</h5>
-                        <p>Mira algunos programas de Camboya</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/31-emiratos-arabes-unidos.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/emiratos-arabes-unidos.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Emiratos Arabes Unidos</h5>
-                        <p>Mira algunos programas de Emiratos Arabes Unidos</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/32-filipinas.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/filipinas.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Filipinas</h5>
-                        <p>Mira algunos programas de Filipinas</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/33-india.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/india.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>India</h5>
-                        <p>Mira algunos programas de India</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/34-indonesia.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/indonesia.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Indonesia</h5>
-                        <p>Mira algunos programas de Indonesia</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/35-japon.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/japon.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Japón</h5>
-                        <p>Mira algunos programas de Japón</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/36-jordania.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/jordania.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Jordania</h5>
-                        <p>Mira algunos programas de Jordania</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/37-laos.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/laos.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Laos</h5>
-                        <p>Mira algunos programas de Laos</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/38-myanmar.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/myanmar.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Myanmar</h5>
-                        <p>Mira algunos programas de Myanmar</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/39-nepal.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/nepal.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Nepal</h5>
-                        <p>Mira algunos programas de Nepal</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/40-sri-lanka.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/sri-lanka.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Sri Lanka</h5>
-                        <p>Mira algunos programas de Sri Lanka</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/41-tailandia.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/tailandia.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Tailandia</h5>
-                        <p>Mira algunos programas de Tailandia</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/42-uzbequistan.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/uzbequistan.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Uzbequistán</h5>
-                        <p>Mira algunos programas de Uzbequistán</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/43-vietnam.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/vietnam.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>Vietnam</h5>
-                        <p>Mira algunos programas de Vietnam</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-            <div class="conten_ima_paises columna5">
-              <a class="subCategoryImage " href="/asia/pais/74-china.html">
-                <div class="grid">
-                  <figure style="background-image: url(/media/k2/categories/china.jpg);">
-                    <div class="overlay">
-                      <figcaption>
-                        <h5><span>DESCUBRE</span>China</h5>
-                        <p>Mira algunos programas de China</p>
-                      </figcaption>
-                    </div>
-                  </figure>
-                </div>
-              </a>
-            </div>
-          </div>
-          <!-- items -->
+      		</div> 
+
         </div>
-      </div>
-
-
     </div>
-
-  </div>
 
 </body>
 
