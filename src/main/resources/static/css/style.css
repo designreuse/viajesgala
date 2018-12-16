@@ -1553,3 +1553,7 @@ body.politicas .pdd80 .columna10:nth-child(1)
   min-width: 100%; 
   min-height: 100%;
 }
+
+.post {
+	background-image: url(/static/images/fondopost.jpg);
+}

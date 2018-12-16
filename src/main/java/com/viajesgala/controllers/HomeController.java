@@ -115,6 +115,11 @@ public class HomeController {
 		return "categoria";
 	}
 	
+	@GetMapping("/testpost")
+	public String testpost() {
+		return "post";
+	}
+	
 	/*@GetMapping("test")
 	public String test1() {
 		return "categoria";
