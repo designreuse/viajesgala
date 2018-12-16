@@ -35,101 +35,158 @@
   <script th:src="${'/viajesgala/js/api.js'}" src="../static/js/api.js" type="text/javascript"></script>
 
 </head>
+<body class="america relative">
 
-<body class="asia relative">
+    <!------------------------------------------------------------>
+    <!---------------------------- HEAD -------------------------->
+    <!------------------------------------------------------------>
+    <div th:replace="fragments/index::menu"></div>
 
-	<div th:replace="fragments/index::menu"></div>
-
-  	<!-- MAIN -->
-  	<div class="fila">
-		<div class="columna10">
-      		<div class="header header_continente" style="background-image: url('');">
-        		<video autoplay="" loop="loop" preload="auto" muted="muted" id="categoryVideo">
-					<source th:with="vTexto=${#strings.replace(category,' ','')}+'.video'" th:src="#{${vTexto}}" src="../static/videos/video2.mp4" type="video/mp4">
-				</video>
-        		<canvas class="canvas" style="display: none;"></canvas>
-        		<div class="video-timeline js-timeline">
-          			<div class="video-timeline-passed js-timeline-passed"></div>
-        		</div>
-        		<script type="text/javascript">
-	          		var isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
-			        if (isIOS) {
-			        	var canvasVideo = new CanvasVideoPlayer({
-			              videoSelector: "video",
-			              canvasSelector: ".canvas",
-			              timelineSelector: false,
-			              autoplay: true,
-			              makeLoop: true,
-			              pauseOnClick: false,
-			              audio: false
-			            });
-					} 
-			        else{
-	            		document.querySelectorAll(".canvas")[0].style.display = "none";
-			        }
-        		</script>
-        		<div class="bg_oscuro"></div>
-        		<div class="vertical">
-          			<div class="main pdd30 tacenter">
-            			<h3 th:text="${category}">Asia</h3>            			
-            			<h4 th:with="vTexto=${#strings.replace(category,' ','')}+'.texto'" th:text="#{${vTexto}}">Una vez la pises, no tendrás escapatoria</h4>
-            			<a class="ancla btn btn-primary wow fadeIn" data-ancla="#migas" data-wow-delay="6s" style="margin-top: 30px; visibility: visible; animation-delay: 6s; animation-name: fadeIn;">Descubre los destinos</a>
-          			</div>
-        		</div>
-        		<div class="mas">
-          			<div class="mouse ancla" data-ancla="#migas">
-            			<span></span>
-          			</div>
-        		</div>
-      		</div>
-      		
-      		<div id="migas" class="contenedormigas">
-        		<div class="main migas pdd30">
-          			<div class="moduletable">
-            			<ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="migasdepan">
-              				<li>
-                				<a href="/">
-									Inicio
-								</a>
-                				<i class="fa fa-caret-right" aria-hidden="true"></i>
-             				</li>
-
-              				<li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
-                				<span itemprop="name" th:text="${category}">
-									Asia
-								</span>
-                				<meta itemprop="position" content="1">
-              				</li>
-            			</ul>
-          			</div>
-        		</div>
-      		</div>
-      		
-      		<div th:if="${not #lists.isEmpty(posts)}" class="vista_paises">
-      			<div class="k2vk">
-      				<div class="main fila pdd80-30">
-      					<div th:each="post: ${posts}" class="conten_ima_paises columna5">
-              				<a class="subCategoryImage" href="/asia/pais/30-camboya.html"><!-- Poner link al post concreto -->
-                				<div class="grid">
-                  					<figure th:if="${not #lists.isEmpty(post.imagesSrc)}" th:style="'background-image:url(' + ${post.imagesSrc[0]} + ');'">
-                    					<div class="overlay">
-                      						<figcaption>
-                        					<h5 th:text="${post.title}">Título del post</h5>
-                        					<p>Pulsa para ver el contenido</p>
-                      						</figcaption>
-                    					</div>
-                  					</figure>
-                				</div>
-              				</a>
-            			</div>
-      				</div>      			
-      			</div>
-      		
-      		</div> 
-
+    <!------------------------------------------------------------>
+    <!---------------------------- MAIN -------------------------->
+    <!------------------------------------------------------------>
+    <div class="fila">
+        <div class="bLeft columna3">           
         </div>
-    </div>
+
+        <div class="columna10">
+            <div id="system-message-container">
+		</div>
+                   
+		<div class="desktop silenciar">
+			<i class="fa fa-volume-up"></i>
+		</div>
+
+		<div class="header header_continente" style="background-image: url('');">
+	
+			<video autoplay loop="loop" preload="auto" muted="muted">
+				<source th:with="vTexto=${#strings.replace(category,' ','')}+'.video'" th:src="#{${vTexto}}" src="../static/videos/video2.mp4" type="video/mp4">
+			</video>
+			<canvas class="canvas"></canvas>
+			<div class="video-timeline js-timeline">
+				<div class="video-timeline-passed js-timeline-passed"></div>
+			</div>
+			<script type="text/javascript">
+				var isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
+			    if (isIOS) 
+			    {
+			        var canvasVideo = new CanvasVideoPlayer({
+			            videoSelector: "video",
+			            canvasSelector: ".canvas",
+			            timelineSelector: false,
+			            autoplay: true,
+			            makeLoop: true,
+			            pauseOnClick: false,
+			            audio: false
+			        });
+			    }
+			    else 
+			        document.querySelectorAll(".canvas")[0].style.display = "none";
+			</script>	
+			
+			<div class="bg_oscuro"></div>
+			
+			<div class="vertical">	
+				<div class="main pdd30 tacenter">
+					<h3 th:text="${category}">Asia</h3>      
+					<h4 th:with="vTexto=${#strings.replace(category,' ','')}+'.texto'" th:text="#{${vTexto}}">Una vez la pises, no tendrás escapatoria</h4>
+					<a data-ancla="#migas" style="color:white" class="ancla btn btn-primary wow pulse"  data-wow-iteration="infinite" data-wow-duration="1500ms">Descubre los destinos</a>
+				</div>
+			</div>
+			
+			<div class="mas">
+		        <div class="mouse ancla" data-ancla="#migas">		           
+		        </div>
+		    </div>
+		</div>
+			
+		<!------------------------------------------------------------->
+    	<!---------------------------- MIGAS -------------------------->
+    	<!------------------------------------------------------------->	
+		<div id="migas" class="contenedormigas">			
+			<div class="main migas pdd30">
+				<div class="moduletable">					
+					<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="migasdepan">
+						<li>
+							<a th:href="@{/}" href="home.html">
+								Inicio
+							</a>
+							<i class="fa fa-caret-right" aria-hidden="true"></i>
+						</li>
+	
+						<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
+							<span itemprop="name" th:text="${category}">
+								Asia
+							</span>							
+							<meta itemprop="position" content="1">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!------------------------------------------------------------->
+    	<!---------------------------- POSTS -------------------------->
+    	<!------------------------------------------------------------->
+    	<div th:if="${not #lists.isEmpty(posts)}" class="vista_paises">			
+			<div class="k2vk">
+				<!-- Subcategorias -->
+				<div class="main fila pdd80-30">
+					<div th:each="post: ${posts}" class="conten_ima_paises columna5">					
+						<a class="subCategoryImage " href="/america/pais/19-argentina.html"> <!-- Poner link al post concreto -->
+							<div class="grid">
+								<figure th:if="${not #lists.isEmpty(post.imagesSrc)}" th:style="'background-image:url(' + ${post.imagesSrc[0]} + ');'">
+								<!--<figure style="background-image: url(/media/k2/categories/argentina.jpg);">-->
+									<div class="overlay">									
+										<figcaption>
+											<h5 th:text="${post.title}">Título del post</h5>
+											<p>Pulsa para ver el contenido</p>
+										</figcaption>			
+									</div>
+								</figure>
+							</div>
+						</a>
+					</div>									
+				</div>
+				<!-- items -->
+			</div>
+		</div>		
+	</div>
+        
+    <div class="bRight columna3"></div>
+        
+</div>
+
+<!-------------------------------------------------------------------------------------->
+<div class="fullwidth">
+	
+	<div class="moduletable">
+		<div class="custom">
+			<div class="contacta_home">
+				<div class="main pdd60-30 tacenter">
+					<h3>¿Estás listo para la aventura?</h3>
+					<p class="subt">Contacta con nosotros para que podamos planear todo</p>
+					<a href="/contacto.html" class="btn btn-primary">Atrévete</a>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+    
+<!-------------------------------------------------------------------------------------->
+<footer> 
+	<div class="main pdd60-30 tacenter">
+    	<a class="logo" href="/">
+        	<img style="padding-bottom:10px;" src="/viajesgala/images/logo_gala.png">
+		</a>
+		<div class="bajo">
+			<ul>
+            	<li style="padding-top:20px"><a href="/aviso-legal.html">Aviso Legal</a></li>
+                <li style="padding-top:20px"><a href="/politica-de-privacidad.html">Política de Privacidad y Cookies</a></li>
+			</ul>			
+		</div>
+	</div>
+</footer>
 
 </body>
-
 </html>
