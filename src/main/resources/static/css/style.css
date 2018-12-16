@@ -1545,3 +1545,11 @@ body.politicas .pdd80 .columna10:nth-child(1)
     margin: 0;
     padding: 0;
 }
+
+#categoryVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
