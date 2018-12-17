@@ -121,21 +121,6 @@ public class HomeController {
 		return "post";		
 	}
 	
-	@GetMapping("/test")
-	public String test() {
-		return "categoria";
-	}
-	
-	@GetMapping("/testpost")
-	public String testpost() {
-		return "post";
-	}
-	
-	/*@GetMapping("test")
-	public String test1() {
-		return "categoria";
-	}
-	*/
 	@GetMapping("contacto")
 	public String contacto(Model model, HttpSession session) {
 		model.addAttribute("categories",session.getAttribute("categories"));
