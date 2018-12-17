@@ -100,7 +100,7 @@
 				<!-- Subcategorias -->
 				<div class="main fila pdd80-30">
 					<div th:each="post: ${posts}" class="conten_ima_paises columna5">					
-						<a class="subCategoryImage " href="/america/pais/19-argentina.html"> <!-- Poner link al post concreto -->
+						<a class="subCategoryImage " th:with="vHref='/post/'+${post.iD}" th:href="@{${vHref}}">
 							<div class="grid">
 								<figure th:if="${not #lists.isEmpty(post.imagesSrc)}" th:style="'background-image:url(' + ${post.imagesSrc[0]} + ');'">
 								<!--<figure style="background-image: url(/media/k2/categories/argentina.jpg);">-->

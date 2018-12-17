@@ -41,6 +41,7 @@ public class HomeController {
 		model.addAttribute("posts",posts);
 		model.addAttribute("categories",categories);
 		session.setAttribute("categories",categories);
+		session.setAttribute("posts",posts);
 		
 		return "home";
 	}
@@ -89,7 +90,8 @@ public class HomeController {
 	
 	@GetMapping("/posts/{category}")
 	public String posts(Model model,@PathVariable String category, HttpSession session) {
-		List<Post> posts = wordPressService.getPosts();
+		List<Post> posts = (List<Post>)session.getAttribute("posts");
+		// List<Post> posts = wordPressService.getPosts();
 		List<Post> postsFiltered = new ArrayList<Post>();
 		
 		if (posts != null) {			
@@ -108,6 +110,15 @@ public class HomeController {
 		
 		return "categoria";
 		
+	}
+	
+	@GetMapping("/post/{ID}")
+	public String post(Model model,@PathVariable String ID, HttpSession session) {
+		List<Post> posts = (List<Post>)session.getAttribute("posts");
+		Post post = posts.stream().filter(p -> p.getID() == Integer.parseInt(ID)).collect(Collectors.toList()).get(0);
+		model.addAttribute("post",post);
+		model.addAttribute("categories",session.getAttribute("categories"));
+		return "post";		
 	}
 	
 	@GetMapping("/test")

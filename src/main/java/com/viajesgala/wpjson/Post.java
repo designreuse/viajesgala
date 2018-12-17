@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Post {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    private Integer iD;
+public class Post {
+	@JsonProperty("ID")
+    private Integer ID;
     private String title;
     private String status;
     private String type;
@@ -37,11 +39,11 @@ public class Post {
     private List<String> imagesSrc;
 
     public Integer getID() {
-        return iD;
+        return ID;
     }
 
-    public void setID(Integer iD) {
-        this.iD = iD;
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
     public String getTitle() {
@@ -243,14 +245,6 @@ public class Post {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
-
-	public Integer getiD() {
-		return iD;
-	}
-
-	public void setiD(Integer iD) {
-		this.iD = iD;
-	}
 
 	public List<String> getImagesSrc() {
 		return imagesSrc;
