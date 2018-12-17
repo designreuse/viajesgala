@@ -1,33 +1,11 @@
 <html>
 <head th:replace="fragments/index::head"></head>
 
-<body>
-
-<script>new WOW().init();</script>
-
-<script>
-$(document).ready(function() {
-	
-	 $("#sidebar").mCustomScrollbar({
-         theme: "minimal"
-     });
-
-     $('#dismiss').on('click', function () {
-         $('#sidebar').removeClass('active');
-     });
-
-     $('#sidebarCollapse').on('click', function () {
-         $('#sidebar').addClass('active');
-         $('.collapse.in').toggleClass('in');
-     });
-	
-});
-
-</script>
+<body class="post">
 
 <div th:replace="fragments/index::menu"></div>
 
-<div class="container post"> 
+<div class="container"> 
 
   <div class="row">
   
