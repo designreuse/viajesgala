@@ -1,11 +1,31 @@
 <html>
 <head th:replace="fragments/index::head"></head>
 
-<body>
+<body class="body-contact">
+
+<div th:replace="fragments/index::menu"></div>
 
 <div class="container">
 
-
+<div class="contact-form">
+	<form action="/examples/actions/confirmation.php" method="post">
+        <h1>Contáctanos</h1>
+		<p class="hint-text">Nos encantaría saber de tí, por favor escríbenos si tienes alguna consulta relacionada con nuestros productos o servicios.</p>
+		<div class="form-group">
+			<label for="inputName">Nombre</label>
+			<input type="text" class="form-control" id="inputName" required>
+		</div>
+		<div class="form-group">
+			<label for="inputEmail">Dirección de Email</label>
+			<input type="email" class="form-control" id="inputEmail" required>
+		</div>
+		<div class="form-group">
+			<label for="inputMessage">Mensaje</label>
+			<textarea class="form-control" id="inputMessage" rows="5" required></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Enviar mensaje</button>
+	</form>
+</div>
 
 </div>
 
