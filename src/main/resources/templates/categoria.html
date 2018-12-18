@@ -102,7 +102,7 @@
 					<div th:each="post: ${posts}" class="conten_ima_paises columna5">					
 						<a class="subCategoryImage " th:with="vHref='/post/'+${post.iD}" th:href="@{${vHref}}">
 							<div class="grid">
-								<figure th:if="${not #lists.isEmpty(post.imagesSrc)}" th:style="'background-image:url(' + ${post.imagesSrc[0]} + ');'">
+								<figure th:style="${not #lists.isEmpty(post.imagesSrc)} ? 'background-image:url(' + ${post.imagesSrc[0]} + ');'">
 								<!--<figure style="background-image: url(/media/k2/categories/argentina.jpg);">-->
 									<div class="overlay">									
 										<figcaption>

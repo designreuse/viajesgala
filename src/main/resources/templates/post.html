@@ -5,7 +5,33 @@
 
 <div th:replace="fragments/index::menu"></div>
 
-<div class="container"> 
+<div class="container">
+
+		<!------------------------------------------------------------->
+    	<!---------------------------- MIGAS -------------------------->
+    	<!------------------------------------------------------------->	
+		<div id="migas" class="contenedormigas">			
+			<div class="main migas pdd30">
+				<div class="moduletable">					
+					<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="migasdepan">
+						<li>
+							<a th:href="@{/}" href="home.html">
+								Inicio
+							</a>
+							<i class="fa fa-caret-right" aria-hidden="true"></i>
+						</li>
+						<li>
+							<a th:with="vHref='/posts/'+${category}" th:href="@{${vHref}}" th:text="${category}"></a>
+							<i class="fa fa-caret-right" aria-hidden="true"></i>
+						</li>	
+						<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
+							<span itemprop="name" th:text="${post.title}"></span>							
+							<meta itemprop="position" content="1">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div> 
 
   <div class="row">
   

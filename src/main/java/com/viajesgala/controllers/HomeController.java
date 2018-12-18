@@ -107,6 +107,7 @@ public class HomeController {
 		model.addAttribute("posts",postsFiltered);
 		model.addAttribute("category",category);
 		model.addAttribute("categories",session.getAttribute("categories"));
+		session.setAttribute("category", category);
 		
 		return "categoria";
 		
@@ -118,6 +119,7 @@ public class HomeController {
 		Post post = posts.stream().filter(p -> p.getID() == Integer.parseInt(ID)).collect(Collectors.toList()).get(0);
 		model.addAttribute("post",post);
 		model.addAttribute("categories",session.getAttribute("categories"));
+		model.addAttribute("category",session.getAttribute("category"));
 		return "post";		
 	}
 	
