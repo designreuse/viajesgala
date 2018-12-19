@@ -60,6 +60,7 @@ public class HomeController {
 						categoriesSet.add(Utilidades.initCap(category.getName()));
 					}
 				}
+				categories = new ArrayList<String>(categoriesSet);
 				session.setAttribute("categories", categories);
 			}
 		}
