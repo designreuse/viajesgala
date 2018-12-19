@@ -9,11 +9,16 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.viajesgala.mail.EmailServiceImpl;
 import com.viajesgala.services.WordPressService;
 import com.viajesgala.utilidades.Utilidades;
 import com.viajesgala.wpjson.Category;
@@ -22,8 +27,17 @@ import com.viajesgala.wpjson.Post;
 @Controller
 public class HomeController {
 	
+	@Value("${spring.mail.username}")
+    private String springMailUsername;
+	
+	@Value("${asunto.mail.formulario}")
+    private String asuntoMailFormulario;
+	
 	@Autowired
 	private WordPressService wordPressService;
+	
+	@Autowired
+	private EmailServiceImpl emailService;
 	
 	@GetMapping("")
 	public String home(Model model, HttpSession session) {
@@ -125,8 +139,27 @@ public class HomeController {
 	
 	@GetMapping("contacto")
 	public String contacto(Model model, HttpSession session) {
+		System.out.println("springMailUsername: "+springMailUsername);
 		model.addAttribute("categories",session.getAttribute("categories"));
 		return "contacto";
+	}
+	
+	@PostMapping("mail")
+	@ResponseBody
+	public String mail(Model model,
+					   @RequestParam("inputName") String name,
+			           @RequestParam("inputEmail") String email,
+			           @RequestParam("inputMessage") String message			           
+			          ) {
+		
+		String mensaje = "Nombre: "+ name + "\n";
+		mensaje += "email: "+ email + "\n\n";
+		mensaje += message;		
+		emailService.sendSimpleMessage(springMailUsername, 
+									   asuntoMailFormulario, 
+									   mensaje
+									  );			
+		return "OK";				
 	}
 	
 }

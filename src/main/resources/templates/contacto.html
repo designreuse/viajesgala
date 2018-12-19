@@ -1,32 +1,97 @@
 <html>
 <head th:replace="fragments/index::head"></head>
 
-<body class="body-contact">
+<body class="body-contact post">
+
+<script>
+	//
+	jQuery(document).ready(function($){
+		//
+	  	var body = $( 'body' );	 
+	  	//
+	  	$("#idFormularioMail").submit(function(e) {
+			var form = $(this);
+    		var url = form.attr('action');
+    		$.ajax({
+				type: "POST",
+           		url: url,
+           		data: form.serialize(), // serializes the form's elements.
+           		success: function(data){
+           			//
+           			$('#divAlerta').html('<div class="alert"><a class="close" data-dismiss="alert"></a><span>'+'El formulario se ha enviado correctamente'+'</span></div>')
+           			//            			
+			  	    setTimeout(function() {
+			  	        $(".alert").alert('close');
+			  	    }, 3000);
+           			//
+           			$('#idFormularioMail')[0].reset(); 
+           		}
+         	});
+    		e.preventDefault(); // avoid to execute the actual submit of the form.
+		}); 	  	
+	});
+	//	
+</script>
 
 <div th:replace="fragments/index::menu"></div>
 
-<div class="container">
+<div class="container tamanoMigas">
 
-<div class="contact-form">
-	<form action="/examples/actions/confirmation.php" method="post">
-        <h1>Contáctanos</h1>
-		<p class="hint-text">Nos encantaría saber de tí, por favor escríbenos si tienes alguna consulta relacionada con nuestros productos o servicios.</p>
-		<div class="form-group">
-			<label for="inputName">Nombre</label>
-			<input type="text" class="form-control" id="inputName" required>
+	<!------------------------------------------------------------->
+	<!---------------------------- MIGAS -------------------------->
+	<!------------------------------------------------------------->	
+	<div id="migas" class="contenedormigas">			
+		<div class="main migas pdd30">
+			<div class="moduletable">					
+				<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="migasdepan">
+					<li>
+						<a th:href="@{/}" href="home.html">
+							Inicio
+						</a>
+						<i class="fa fa-caret-right" aria-hidden="true"></i>
+					</li>
+					<!--  <li>
+						<a th:with="vHref='/posts/'+${category}" th:href="@{${vHref}}" th:text="${category}"></a>
+						<i class="fa fa-caret-right" aria-hidden="true"></i>
+					</li>-->	
+					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
+						<span itemprop="name" th:text="Contacto"></span>							
+						<meta itemprop="position" content="1">
+					</li>
+				</ul>
+			</div>
 		</div>
-		<div class="form-group">
-			<label for="inputEmail">Dirección de Email</label>
-			<input type="email" class="form-control" id="inputEmail" required>
-		</div>
-		<div class="form-group">
-			<label for="inputMessage">Mensaje</label>
-			<textarea class="form-control" id="inputMessage" rows="5" required></textarea>
-		</div>
-		<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Enviar mensaje</button>
-	</form>
-</div>
+	</div>
+
+	<!-------------------------------------------------------------->
+	<!---------------------------- ALERTA -------------------------->
+	<!-------------------------------------------------------------->	
+	<div id="divAlerta"></div>
+	
+	<!------------------------------------------------------------------>
+	<!---------------------------- FORMULARIO -------------------------->
+	<!------------------------------------------------------------------>
+	<div class="contact-form">
+		<form id="idFormularioMail" class="contact-form-in" action="mail" method="post">
+	        <h1>Contáctanos</h1>
+			<p class="hint-text">Nos encantaría saber de tí, por favor escríbenos si tienes alguna consulta relacionada con nuestros productos o servicios.</p>
+			<div class="form-group">
+				<label for="inputName">Nombre</label>
+				<input type="text" class="form-control" id="inputName" name="inputName" required>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail">Dirección de Email</label>
+				<input type="email" class="form-control" id="inputEmail" name="inputEmail" required>
+			</div>
+			<div class="form-group">
+				<label for="inputMessage">Mensaje</label>
+				<textarea class="form-control" id="inputMessage" name="inputMessage" rows="5" required></textarea>
+			</div>
+			<button id="buttonSendMail" type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Enviar mensaje</button>
+		</form>
+	</div>
 
 </div>
 
 </body>
+</html>
