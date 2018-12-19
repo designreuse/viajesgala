@@ -10,11 +10,16 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.viajesgala.mail.EmailServiceImpl;
 import com.viajesgala.services.WordPressService;
 import com.viajesgala.utilidades.Utilidades;
 import com.viajesgala.wpjson.Category;
@@ -23,8 +28,17 @@ import com.viajesgala.wpjson.Post;
 @Controller
 public class HomeController {
 	
+	@Value("${spring.mail.username}")
+    private String springMailUsername;
+	
+	@Value("${asunto.mail.formulario}")
+    private String asuntoMailFormulario;
+	
 	@Autowired
 	private WordPressService wordPressService;
+	
+	@Autowired
+	private EmailServiceImpl emailService;
 	
 	private List<Post> getPosts (HttpSession session) {
 		List<Post> posts = (List<Post>)session.getAttribute("posts");
@@ -46,10 +60,9 @@ public class HomeController {
 						categoriesSet.add(Utilidades.initCap(category.getName()));
 					}
 				}
-				categories = new ArrayList<String>(categoriesSet);
-				session.setAttribute("categories",categories);
+				session.setAttribute("categories", categories);
 			}
-		}		
+		}
 		return categories;
 	}
 	
@@ -105,6 +118,24 @@ public class HomeController {
 		List<String> categories = getCategories(session);
 		model.addAttribute("categories",categories);
 		return "contacto";
+	}
+	
+	@PostMapping("mail")
+	@ResponseBody
+	public String mail(Model model,
+					   @RequestParam("inputName") String name,
+			           @RequestParam("inputEmail") String email,
+			           @RequestParam("inputMessage") String message			           
+			          ) {
+		
+		String mensaje = "Nombre: "+ name + "\n";
+		mensaje += "email: "+ email + "\n\n";
+		mensaje += message;		
+		emailService.sendSimpleMessage(springMailUsername, 
+									   asuntoMailFormulario, 
+									   mensaje
+									  );			
+		return "OK";				
 	}
 	
 }
