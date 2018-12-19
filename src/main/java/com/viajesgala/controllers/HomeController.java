@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,73 +26,47 @@ public class HomeController {
 	@Autowired
 	private WordPressService wordPressService;
 	
-	@GetMapping("")
-	public String home(Model model, HttpSession session) {
-		
-		List<Post> posts = wordPressService.getPosts();
-		Set<String> categoriesSet = new HashSet<>();
-		if (posts != null) {
-			for (Post post: posts) {
-				for (Category category: post.getTerms().getCategory()) {
-					categoriesSet.add(Utilidades.initCap(category.getName()));
+	private List<Post> getPosts (HttpSession session) {
+		List<Post> posts = (List<Post>)session.getAttribute("posts");
+		if (CollectionUtils.isEmpty(posts)) {
+			posts = wordPressService.getPosts();
+			session.setAttribute("posts",posts);
+		}		
+		return posts;
+	}
+	
+	private List<String> getCategories (HttpSession session) {
+		List<String> categories = (List<String>)session.getAttribute("categories");
+		if (CollectionUtils.isEmpty(categories)) {
+			List<Post> posts = getPosts(session);
+			Set<String> categoriesSet = new HashSet<>();
+			if (!CollectionUtils.isEmpty(posts)) {
+				for (Post post: posts) {
+					for (Category category: post.getTerms().getCategory()) {
+						categoriesSet.add(Utilidades.initCap(category.getName()));
+					}
 				}
+				categories = new ArrayList<String>(categoriesSet);
+				session.setAttribute("categories",categories);
 			}
-		}
-		List<String> categories = new ArrayList<String>(categoriesSet);
+		}		
+		return categories;
+	}
+	
+	@GetMapping("")
+	public String home(Model model, HttpSession session) {		
+		List<Post> posts = getPosts(session);
+		List<String> categories = getCategories(session);
+		
 		model.addAttribute("posts",posts);
 		model.addAttribute("categories",categories);
-		session.setAttribute("categories",categories);
-		session.setAttribute("posts",posts);
 		
 		return "home";
 	}
 	
-	/*@GetMapping("/home_old")
-	public String home_old(Model model, HttpSession session) {
-		
-		List<Post> posts = wordPressService.getPosts();
-		Set<String> categoriesSet = new HashSet<>();
-		if (posts != null) {
-			for (Post post: posts) {
-				for (Category category: post.getTerms().getCategory()) {
-					categoriesSet.add(category.getName());
-				}
-			}
-		}
-		List<String> categories = new ArrayList<String>(categoriesSet);
-		model.addAttribute("posts",posts);
-		model.addAttribute("categories",categories);
-		session.setAttribute("categories",categories);
-		
-		return "home_old";
-	}*/
-	
-	/*@GetMapping("/posts/{category}")
-	public String posts(Model model,@PathVariable String category, HttpSession session) {
-		List<Post> posts = wordPressService.getPosts();
-		List<Post> postsFiltered = new ArrayList<Post>();
-		
-		if (posts != null) {			
-			for (Post post:posts) {				
-				List<Category> categories = post.getTerms().getCategory().stream().filter(c->c.getName().equals(category)).collect(Collectors.toList());
-				if (categories!=null && categories.size()>0) {
-					postsFiltered.add(post);
-				}
-				
-			}
-		}
-		
-		model.addAttribute("posts",postsFiltered);
-		model.addAttribute("categories",session.getAttribute("categories"));
-		
-		return "posts";
-		
-	}*/
-	
 	@GetMapping("/posts/{category}")
 	public String posts(Model model,@PathVariable String category, HttpSession session) {
-		List<Post> posts = (List<Post>)session.getAttribute("posts");
-		// List<Post> posts = wordPressService.getPosts();
+		List<Post> posts = getPosts(session);
 		List<Post> postsFiltered = new ArrayList<Post>();
 		
 		if (posts != null) {			
@@ -104,28 +79,31 @@ public class HomeController {
 			}
 		}
 		
+		List<String> categories = getCategories(session);
+		
 		model.addAttribute("posts",postsFiltered);
 		model.addAttribute("category",category);
-		model.addAttribute("categories",session.getAttribute("categories"));
-		session.setAttribute("category", category);
+		model.addAttribute("categories",categories);
 		
 		return "categoria";
 		
 	}
 	
-	@GetMapping("/post/{ID}")
-	public String post(Model model,@PathVariable String ID, HttpSession session) {
-		List<Post> posts = (List<Post>)session.getAttribute("posts");
+	@GetMapping("/post/{category}/{ID}")
+	public String post(Model model, @PathVariable String category, @PathVariable String ID, HttpSession session) {
+		List<Post> posts = getPosts(session);
+		List<String> categories = getCategories(session);
 		Post post = posts.stream().filter(p -> p.getID() == Integer.parseInt(ID)).collect(Collectors.toList()).get(0);
 		model.addAttribute("post",post);
-		model.addAttribute("categories",session.getAttribute("categories"));
-		model.addAttribute("category",session.getAttribute("category"));
+		model.addAttribute("categories",categories);
+		model.addAttribute("category",category);
 		return "post";		
 	}
 	
 	@GetMapping("contacto")
 	public String contacto(Model model, HttpSession session) {
-		model.addAttribute("categories",session.getAttribute("categories"));
+		List<String> categories = getCategories(session);
+		model.addAttribute("categories",categories);
 		return "contacto";
 	}
 	

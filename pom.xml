@@ -29,6 +29,7 @@
 		<popper.js.version>1.14.1</popper.js.version>
 		<font-awesome.version>5.1.0</font-awesome.version>
 		<custom-scrollbar.version>3.1.5</custom-scrollbar.version>
+		<commons-collections4.version>4.2</commons-collections4.version>
 	</properties>
 
 	<dependencies>
@@ -113,7 +114,14 @@
 		    <groupId>org.webjars.bower</groupId>
 		    <artifactId>malihu-custom-scrollbar-plugin</artifactId>
 		    <version>${custom-scrollbar.version}</version>
-		</dependency>										
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-collections4</artifactId>
+		    <version>${commons-collections4.version}</version>
+		</dependency>												
 		
 	</dependencies>
 
