@@ -1,16 +1,21 @@
 package com.viajesgala.controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.viajesgala.mail.EmailServiceImpl;
+import com.viajesgala.services.RecaptchaService;
 import com.viajesgala.services.WordPressService;
 import com.viajesgala.utilidades.Utilidades;
 import com.viajesgala.wpjson.Category;
@@ -39,6 +45,9 @@ public class HomeController {
 	
 	@Autowired
 	private EmailServiceImpl emailService;
+	
+	@Autowired
+	private RecaptchaService captchaService;
 	
 	private List<Post> getPosts (HttpSession session) {
 		List<Post> posts = (List<Post>)session.getAttribute("posts");
@@ -126,8 +135,19 @@ public class HomeController {
 	public String mail(Model model,
 					   @RequestParam("inputName") String name,
 			           @RequestParam("inputEmail") String email,
-			           @RequestParam("inputMessage") String message			           
+			           @RequestParam("inputMessage") String message,
+			           @RequestParam(name="g-recaptcha-response") String recaptchaResponse,
+			           HttpServletRequest request
 			          ) {
+		
+		String ip = request.getRemoteAddr();
+		String captchaVerifyMessage = captchaService.verifyRecaptcha(ip, recaptchaResponse);
+		 
+		if ( StringUtils.isNotEmpty(captchaVerifyMessage)) {
+			Map<String, Object> response = new HashMap<>();
+			response.put("message", captchaVerifyMessage);
+			return "KO";
+		}
 		
 		String mensaje = "Nombre: "+ name + "\n";
 		mensaje += "email: "+ email + "\n\n";
