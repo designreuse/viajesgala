@@ -18,13 +18,35 @@
            		data: form.serialize(), // serializes the form's elements.
            		success: function(data){
            			//
-           			$('#divAlerta').html('<div class="alert"><a class="close" data-dismiss="alert"></a><span>'+'El formulario se ha enviado correctamente'+'</span></div>')
-           			//            			
-			  	    setTimeout(function() {
-			  	        $(".alert").alert('close');
-			  	    }, 3000);
-           			//
-           			$('#idFormularioMail')[0].reset(); 
+           			if(data=='OK'){
+	           			//
+	           			$('#divAlerta').html('<div class="alert"><a class="close" data-dismiss="alert"></a><span>'+'El formulario se ha enviado correctamente'+'</span></div>')
+	           			//            			
+				  	    setTimeout(function() {
+				  	        $(".alert").alert('close');
+				  	    }, 3000);
+	           			//
+	           			$('#idFormularioMail')[0].reset();
+	           			//
+           			}
+           			else if(data=='KO'){
+           				//           				
+	           			$('#divAlerta').html('<div class="alert alert-error"><a class="close" data-dismiss="alert"></a><span>'+'Por favor indique que no es un robot.'+'</span></div>')
+	           			//            			
+				  	    setTimeout(function() {
+				  	        $(".alert").alert('close');
+				  	    }, 3000);
+	           			//	           			
+           			}
+           			else{
+           				//
+	           			$('#divAlerta').html('<div class="alert alert-error"><a class="close" data-dismiss="alert"></a><span>'+'Error generico. Contacte con el administrador.'+'</span></div>')
+	           			//            			
+				  	    setTimeout(function() {
+				  	        $(".alert").alert('close');
+				  	    }, 3000);
+	           			//	           			
+           			}
            		}
          	});
     		e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -87,7 +109,7 @@
 				<label for="inputMessage">Mensaje</label>
 				<textarea class="form-control" id="inputMessage" name="inputMessage" rows="5" required></textarea>
 			</div>
-			<div class="g-recaptcha" data-sitekey="6Le_6IMUAAAAAPBLp0yKTIp0psvQ7DHX4985u7Gg"></div>
+			<div class="g-recaptcha form-group-capcha" data-sitekey="6Le_6IMUAAAAAPBLp0yKTIp0psvQ7DHX4985u7Gg"></div>
 			<button id="buttonSendMail" type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Enviar mensaje</button>
 		</form>
 	</div>

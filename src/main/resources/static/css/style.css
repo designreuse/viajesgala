@@ -1591,6 +1591,10 @@ body.politicas .pdd80 .columna10:nth-child(1)
 	.contact-form .form-group {
 		margin-bottom: 20px;
 	}
+	.contact-form .form-group-capcha {
+		margin-bottom: 20px;
+		margin-left: 13%;
+	}	
     .contact-form .form-control, .contact-form .btn  {        
         border-radius: 2px;
 		min-height: 40px;
