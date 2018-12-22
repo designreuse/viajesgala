@@ -1,11 +1,18 @@
 <html>
 <head th:replace="fragments/index::head"></head>
 
-<body class="body-contact post">
+<body class="body-contact post">	
 
 <script>
 	//
 	jQuery(document).ready(function($){
+		setTimeout(function(){
+			if($('#html_element').children().length === 0) {
+				grecaptcha.render('html_element', {
+					'sitekey' : '6Le_6IMUAAAAAPBLp0yKTIp0psvQ7DHX4985u7Gg'
+				});
+			}
+		}, 100);
 		//
 	  	var body = $( 'body' );	 
 	  	//
@@ -46,7 +53,7 @@
 				  	        $(".alert").alert('close');
 				  	    }, 3000);
 	           			//	           			
-           			}
+           			}           			
            		}
          	});
     		e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -109,9 +116,11 @@
 				<label for="inputMessage">Mensaje</label>
 				<textarea class="form-control" id="inputMessage" name="inputMessage" rows="5" required></textarea>
 			</div>
-			<div class="g-recaptcha form-group-capcha" data-sitekey="6Le_6IMUAAAAAPBLp0yKTIp0psvQ7DHX4985u7Gg"></div>
+			<!--<div class="g-recaptcha form-group-capcha" data-sitekey="6Le_6IMUAAAAAPBLp0yKTIp0psvQ7DHX4985u7Gg"></div>-->
+			<div class="form-group-capcha" id="html_element"></div>
 			<button id="buttonSendMail" type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Enviar mensaje</button>
 		</form>
+		<script src="https://www.google.com/recaptcha/api.js"></script>
 	</div>
 
 </div>
