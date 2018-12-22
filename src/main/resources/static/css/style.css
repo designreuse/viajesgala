@@ -166,7 +166,7 @@ h1, h2, h3, h4, h5, h6{line-height: 1.2;}
 	z-index: 10;
 	width: 40%;
 	//max-width: 700px;
-	top: 50%;
+	//top: 50%;
 	left: 49%;
 	transform: translateX(-50%) translateY(-50%);
 	box-shadow: 0 0 100px rgba(0,0,0,0.5);

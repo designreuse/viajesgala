@@ -20,7 +20,7 @@
            			//
            			if(data=='OK'){
 	           			//
-	           			$('#divAlerta').html('<div class="alert"><a class="close" data-dismiss="alert"></a><span>'+'El formulario se ha enviado correctamente'+'</span></div>')
+	           			$('#divAlerta').html('<div class="alert" style="top: 50%;"><a class="close" data-dismiss="alert"></a><span>'+'El formulario se ha enviado correctamente'+'</span></div>')
 	           			//            			
 				  	    setTimeout(function() {
 				  	        $(".alert").alert('close');
@@ -31,7 +31,7 @@
            			}
            			else if(data=='KO'){
            				//           				
-	           			$('#divAlerta').html('<div class="alert alert-error"><a class="close" data-dismiss="alert"></a><span>'+'Por favor indique que no es un robot.'+'</span></div>')
+	           			$('#divAlerta').html('<div class="alert alert-error" style="top: 50%;"><a class="close" data-dismiss="alert"></a><span>'+'Por favor indique que no es un robot.'+'</span></div>')
 	           			//            			
 				  	    setTimeout(function() {
 				  	        $(".alert").alert('close');
@@ -40,7 +40,7 @@
            			}
            			else{
            				//
-	           			$('#divAlerta').html('<div class="alert alert-error"><a class="close" data-dismiss="alert"></a><span>'+'Error generico. Contacte con el administrador.'+'</span></div>')
+	           			$('#divAlerta').html('<div class="alert alert-error" style="top: 50%;"><a class="close" data-dismiss="alert"></a><span>'+'Error generico. Contacte con el administrador.'+'</span></div>')
 	           			//            			
 				  	    setTimeout(function() {
 				  	        $(".alert").alert('close');
