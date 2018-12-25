@@ -118,7 +118,7 @@
 	.contacto_derecha{display: none;}
 	.mas{display: none;}
 	body.home .portada h2 {padding: 0;}
-	/*header{padding: 0; background-color: rgba(255,255,255,1); width: 100%; box-shadow: 0 0 24px rgba(0,0,0,0.15);}*/
+	header{padding: 0; background-color: rgba(255,255,255,1); width: 100%; box-shadow: 0 0 24px rgba(0,0,0,0.15);}
 	.portada .main{text-align: center;}
 	.portada .ancla{padding-top: 15px;}
 	.swiper-wrapper .pdd80-30{padding: 30px;}
