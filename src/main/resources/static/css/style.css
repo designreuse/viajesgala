@@ -586,7 +586,7 @@ body.home .portada h2
 }
 body.home .etapas
 {
-	background-color: #fff;
+	/*background-color: #fff;*/
 }
 /*--------------- SIDR ----------------*/
 .sidr{
@@ -669,7 +669,8 @@ h4
 }
 span.desc
 {
-	color: #888;
+	color: #585858; 
+	/*color: #888;*/
 	font-size: 17px;
 	margin-bottom: 20px;
 	display: block;
@@ -690,7 +691,7 @@ span.desc
 .nosotros_home .num 
 {
     font-size: 14px;
-    color: #666;
+    color: #585858; /*#666;*/
 }
 h5 
 {
@@ -778,7 +779,7 @@ h6
 .contacta_home .subt
 {
 	color: #fff;
-	font-size: 21px;
+	font-size: 25px;
 	padding-bottom: 25px;
 	padding-top: 0;
 }
@@ -1558,6 +1559,10 @@ body.politicas .pdd80 .columna10:nth-child(1)
 
 .post {
 	background-image: url(/viajesgala/images/fondopost.jpg);
+}
+
+.fondo_home {
+	background-image: url(/viajesgala/images/fondo_home.jpg);
 }
 
 .tamanoMigas {
