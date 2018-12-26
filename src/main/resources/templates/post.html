@@ -1,12 +1,41 @@
 <html>
 <head th:replace="fragments/index::head"></head>
+<body class="america relative">
 
-<body class="fondo_home">
+    <!------------------------------------------------------------>
+    <!---------------------------- HEAD -------------------------->
+    <!------------------------------------------------------------>
+    <div th:replace="fragments/index::menu"></div>
 
-<div th:replace="fragments/index::menu"></div>
+    <!------------------------------------------------------------>
+    <!---------------------------- MAIN -------------------------->
+    <!------------------------------------------------------------>
+    <div class="fila">
+        
+        <div class="bLeft columna3">           
+        </div>
 
-<div class="container tamanoMigas">
-
+        <div class="columna10">
+            <div id="system-message-container">
+		</div>
+          
+		<div class="header header_continente" th:style="${not #lists.isEmpty(post.imagesSrc)} ? 'background-image:url(' + ${post.imagesSrc[0]} + ');'" style="background-image: url('');">
+	
+			<div class="bg_oscuro"></div>
+			
+			<div class="vertical">	
+				<div class="main pdd30 tacenter">
+					<h3 style="margin-bottom:30px;" th:text="${post.title}">Asia</h3>      
+					<a data-ancla="#migas" style="color:white" class="ancla btn btn-primary wow pulse"  data-wow-iteration="infinite" data-wow-duration="1500ms">M&aacute;s informaci&oacute;n</a>
+				</div>
+			</div>
+			
+			<div class="mas">
+		        <div class="mouse ancla" data-ancla="#migas">		           
+		        </div>
+		    </div>
+		</div>
+			
 		<!------------------------------------------------------------->
     	<!---------------------------- MIGAS -------------------------->
     	<!------------------------------------------------------------->	
@@ -32,36 +61,33 @@
 				</div>
 			</div>
 		</div> 
-
-  <div class="row">
-  
-    <div class="col-12">
-    
-        <div class="card-body">
-        	<h4 class="card-title" th:text="${post.title}">Card Title</h4>
-        	<p class="card-text" th:utext="${post.content}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        	<div class="carousel slide" data-ride="carousel">
-        	
-        		<div class="carousel-inner">
-        		
-        			<div th:each="image,i: ${post.imagesSrc}" class="carousel-item" th:classappend="${i.index==0}?'active':''">
-        				<img class="d-block w-100" th:src="${image}">
-        			</div>
-        		
-        		</div>
-        	
-        	</div>
-        	
-        </div>
-    	
-    </div>
-  
-  </div>
-
+		
+		<!------------------------------------------------------------->
+    	<!---------------------------- POSTS -------------------------->
+    	<!------------------------------------------------------------->
+    	<div class="row fondo_home" style="margin-left:0px;margin-right:0px;">
+	   		<div class="col-xs-12 col-md-8 centrado">
+	       		<div class="card-body">
+	   			<h4 class="card-title" th:text="${post.title}">Card Title</h4>
+			      	<p class="card-text" th:utext="${post.content}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	       			<div class="carousel slide" data-ride="carousel">        	
+	       				<div class="carousel-inner">        		
+		        			<div th:each="image,i: ${post.imagesSrc}" class="carousel-item" th:classappend="${i.index==0}?'active':''">
+		        				<img class="d-block w-100" th:src="${image}">
+		        			</div>        		
+	       				</div>
+	       			</div>        	
+	       		</div>    	
+	   		</div>  
+		</div>
+		
+	</div>
+        
+    <div class="bRight columna3"></div>
+        
 </div>
 
 <div th:replace="fragments/index::footer"></div>
 
 </body>
-
 </html>

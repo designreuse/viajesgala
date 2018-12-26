@@ -1626,3 +1626,8 @@ body.politicas .pdd80 .columna10:nth-child(1)
     .contact-form textarea {
         resize: vertical;
     }
+    
+    .centrado{
+    	margin-left:auto;margin-right:auto;
+    }
+    
