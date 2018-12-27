@@ -16,24 +16,43 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.viajesgala.wpjson.Post;
+import com.viajesgala.wpjson.Posts;
 
 @Service
 public class WordPressService {
 	
 	@Value("${wpjson.posts}")
 	private String postsUrl;
+	
+	@Value("${wp.rest.version}")
+	private String restVersion;
+	
+	@Value("${wpjson.posts.V2}")
+	private String postsUrlV2;
 
 	public List<Post> getPosts () {
 	
 		RestTemplate restTemplate = new RestTemplate();
 		
-		ResponseEntity<List<Post>> posts = restTemplate.exchange(postsUrl,HttpMethod.GET,null,new ParameterizedTypeReference<List<Post>>(){});
+		List<Post> posts = null;
+		
+		if (restVersion.equals("2")) {			
+			ResponseEntity<Posts> postsEntity = restTemplate.exchange(postsUrlV2,HttpMethod.GET,null,new ParameterizedTypeReference<Posts>(){});
+			if (postsEntity != null) {
+				posts = postsEntity.getBody().getPosts();
+			}	
+		} else {		
+			ResponseEntity<List<Post>> postsEntity = restTemplate.exchange(postsUrl,HttpMethod.GET,null,new ParameterizedTypeReference<List<Post>>(){});
+			if (postsEntity != null) {
+				posts = postsEntity.getBody();
+			}			
+		}
 		
 		if (posts != null) {
 			
 			HtmlCleaner htmlCleaner = new HtmlCleaner();
 			
-			for (Post post: posts.getBody()) {
+			for (Post post: posts) {
 				
 				final List<String> imagesSrc = new ArrayList<String>();
 				TagNode node = htmlCleaner.clean(post.getContent());
@@ -64,7 +83,7 @@ public class WordPressService {
 			
 		}
 		
-		return posts.getBody();
+		return posts;
 		
 	}	
 	
