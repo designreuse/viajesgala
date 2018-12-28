@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.viajesgala.wpjson.Post;
+import com.viajesgala.wpjson.PostV2;
 import com.viajesgala.wpjson.Posts;
 
 @Service
@@ -39,7 +40,7 @@ public class WordPressService {
 		if (restVersion.equals("2")) {			
 			ResponseEntity<Posts> postsEntity = restTemplate.exchange(postsUrlV2,HttpMethod.GET,null,new ParameterizedTypeReference<Posts>(){});
 			if (postsEntity != null) {
-				posts = postsEntity.getBody().getPosts();
+				List<PostV2> postsV2 = postsEntity.getBody().getPosts();
 			}	
 		} else {		
 			ResponseEntity<List<Post>> postsEntity = restTemplate.exchange(postsUrl,HttpMethod.GET,null,new ParameterizedTypeReference<List<Post>>(){});
