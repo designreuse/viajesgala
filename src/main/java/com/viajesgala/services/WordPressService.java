@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.viajesgala.adapters.WPAdapter;
+import com.viajesgala.wpjson.CategorieInfoV2;
+import com.viajesgala.wpjson.Categories;
 import com.viajesgala.wpjson.Post;
 import com.viajesgala.wpjson.PostV2;
 import com.viajesgala.wpjson.Posts;
@@ -32,6 +34,9 @@ public class WordPressService {
 	
 	@Value("${wpjson.posts.V2}")
 	private String postsUrlV2;
+	
+	@Value("${wpjson.categories.V2}")
+	private String categoriesUrlV2;
 	
 	@Autowired
 	private WPAdapter wpAdapter;
@@ -91,6 +96,24 @@ public class WordPressService {
 		}
 		
 		return posts;
+		
+	}
+	
+	public List<CategorieInfoV2> getCategories () {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		List<CategorieInfoV2> categories = null;
+		
+		if (restVersion.equals("2")) {			
+			ResponseEntity<Categories> categoriesEntity = restTemplate.exchange(categoriesUrlV2,HttpMethod.GET,null,new ParameterizedTypeReference<Categories>(){});
+			if (categoriesEntity != null) {
+				List<CategorieInfoV2> categoriesV2 = categoriesEntity.getBody().getCategories();
+				categories = categoriesV2;				
+			}	
+		} 
+		
+		return categories;
 		
 	}	
 	

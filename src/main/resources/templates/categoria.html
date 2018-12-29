@@ -55,8 +55,13 @@
 			
 			<div class="vertical">	
 				<div class="main pdd30 tacenter">
-					<h3 th:text="${category}">Asia</h3>      
-					<h4 th:with="vTexto=${#strings.replace(category,' ','')}+'.texto'" th:text="#{${vTexto}}">Una vez la pises, no tendrás escapatoria</h4>
+					<h3 th:text="${category}">Asia</h3>   
+					<th:block th:if="${not #strings.isEmpty(descripcionCategoria)}">   
+						<h4 th:text="${descripcionCategoria}">Una vez la pises, no tendras escapatoria</h4>
+					</th:block>
+					<th:block th:unless="${not #strings.isEmpty(descripcionCategoria)}">   
+						<h4 th:with="vTexto=${#strings.replace(category,' ','')}+'.texto'" th:text="#{${vTexto}}">Una vez la pises, no tendras escapatoria</h4>
+					</th:block>
 					<a data-ancla="#migas" style="color:white" class="ancla btn btn-primary wow pulse"  data-wow-iteration="infinite" data-wow-duration="1500ms">M&aacute;s informaci&oacute;n</a>
 				</div>
 			</div>

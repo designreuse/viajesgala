@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -27,6 +28,7 @@ import com.viajesgala.mail.EmailServiceImpl;
 import com.viajesgala.services.RecaptchaService;
 import com.viajesgala.services.WordPressService;
 import com.viajesgala.utilidades.Utilidades;
+import com.viajesgala.wpjson.CategorieInfoV2;
 import com.viajesgala.wpjson.Category;
 import com.viajesgala.wpjson.Post;
 
@@ -57,8 +59,35 @@ public class HomeController {
 		return posts;
 	}
 	
+	private List<CategorieInfoV2> getCategoriesInfo (HttpSession session) {
+		List<CategorieInfoV2> categories = (List<CategorieInfoV2>)session.getAttribute("categoriesInfo");
+		if (CollectionUtils.isEmpty(categories)) {
+			categories = wordPressService.getCategories();
+			session.setAttribute("categoriesInfo",categories);
+		}		
+		return categories;
+	}
+	
+	private String descripcionCategoria(List<CategorieInfoV2> categories, String categoria) {
+		String descripcionCategoria = "";
+		//
+		if(categories!=null) {
+			//		
+			Optional<CategorieInfoV2> matchingObject = categories.stream().
+				    filter(p -> p.getName().equals(categoria)).
+				    findFirst();
+			//
+			if(matchingObject.isPresent()) {
+				descripcionCategoria = matchingObject.get().getDescription(); 
+			}
+		}
+		//
+		return descripcionCategoria;
+	}
+	
 	private List<String> getCategories (HttpSession session) {
-		List<String> categories = (List<String>)session.getAttribute("categories");
+		//List<String> categories = (List<String>)session.getAttribute("categories");		
+		List<String> categories = null;		
 		if (CollectionUtils.isEmpty(categories)) {
 			List<Post> posts = getPosts(session);
 			Set<String> categoriesSet = new HashSet<>();
@@ -105,6 +134,7 @@ public class HomeController {
 		
 		model.addAttribute("posts",postsFiltered);
 		model.addAttribute("category",category);
+		model.addAttribute("descripcionCategoria", descripcionCategoria(getCategoriesInfo (session),category));
 		model.addAttribute("categories",categories);
 		
 		return "categoria";
@@ -119,13 +149,12 @@ public class HomeController {
 		model.addAttribute("post",post);
 		model.addAttribute("categories",categories);
 		model.addAttribute("category",category);
+		model.addAttribute("descripcionCategoria", descripcionCategoria(getCategoriesInfo (session),category));
 		return "post";		
 	}
 	
 	@GetMapping("contacto")
 	public String contacto(Model model, HttpSession session) {
-		List<String> categories = getCategories(session);
-		model.addAttribute("categories",categories);
 		return "contacto";
 	}
 	
