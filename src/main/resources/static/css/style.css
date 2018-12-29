@@ -410,7 +410,7 @@ header
 	-webkit-transition: left 0.4s linear;
 }
 header.activo{
-	left: 375px;
+	left: 345px;
 	transition: left 1s linear;
 	-webkit-transition: left 1s linear;
 }
