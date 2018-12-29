@@ -8,6 +8,7 @@ import org.htmlcleaner.HtmlNode;
 import org.htmlcleaner.SimpleHtmlSerializer;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.TagNodeVisitor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.viajesgala.adapters.WPAdapter;
 import com.viajesgala.wpjson.Post;
 import com.viajesgala.wpjson.PostV2;
 import com.viajesgala.wpjson.Posts;
@@ -30,6 +32,9 @@ public class WordPressService {
 	
 	@Value("${wpjson.posts.V2}")
 	private String postsUrlV2;
+	
+	@Autowired
+	private WPAdapter wpAdapter;
 
 	public List<Post> getPosts () {
 	
@@ -41,6 +46,7 @@ public class WordPressService {
 			ResponseEntity<Posts> postsEntity = restTemplate.exchange(postsUrlV2,HttpMethod.GET,null,new ParameterizedTypeReference<Posts>(){});
 			if (postsEntity != null) {
 				List<PostV2> postsV2 = postsEntity.getBody().getPosts();
+				posts = wpAdapter.postsToV1(postsV2);
 			}	
 		} else {		
 			ResponseEntity<List<Post>> postsEntity = restTemplate.exchange(postsUrl,HttpMethod.GET,null,new ParameterizedTypeReference<List<Post>>(){});
