@@ -157,6 +157,8 @@ public class HomeController {
 	
 	@GetMapping("contacto")
 	public String contacto(Model model, HttpSession session) {
+		List<String> categories = getCategories(session);
+		model.addAttribute("categories",categories);
 		return "contacto";
 	}
 	
