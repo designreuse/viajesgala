@@ -52,6 +52,7 @@ public class HomeController {
 	
 	private List<Post> getPosts (HttpSession session) {
 		List<Post> posts = (List<Post>)session.getAttribute("posts");
+		//List<Post> posts = null;
 		if (CollectionUtils.isEmpty(posts)) {
 			posts = wordPressService.getPosts();
 			session.setAttribute("posts",posts);
@@ -61,6 +62,7 @@ public class HomeController {
 	
 	private List<CategorieInfoV2> getCategoriesInfo (HttpSession session) {
 		List<CategorieInfoV2> categories = (List<CategorieInfoV2>)session.getAttribute("categoriesInfo");
+		//List<CategorieInfoV2> categories = null;
 		if (CollectionUtils.isEmpty(categories)) {
 			categories = wordPressService.getCategories();
 			session.setAttribute("categoriesInfo",categories);
@@ -86,8 +88,8 @@ public class HomeController {
 	}
 	
 	private List<String> getCategories (HttpSession session) {
-		//List<String> categories = (List<String>)session.getAttribute("categories");		
-		List<String> categories = null;		
+		List<String> categories = (List<String>)session.getAttribute("categories");		
+		//List<String> categories = null;		
 		if (CollectionUtils.isEmpty(categories)) {
 			List<Post> posts = getPosts(session);
 			Set<String> categoriesSet = new HashSet<>();

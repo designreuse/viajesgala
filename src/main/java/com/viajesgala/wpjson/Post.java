@@ -37,6 +37,7 @@ public class Post {
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
     
     private List<String> imagesSrc;
+    private List<String> imagesSrcOri;
 
     public Integer getID() {
         return ID;
@@ -252,6 +253,14 @@ public class Post {
 
 	public void setImagesSrc(List<String> imagesSrc) {
 		this.imagesSrc = imagesSrc;
+	}
+	
+	public List<String> getImagesSrcOri() {
+		return imagesSrcOri;
+	}
+
+	public void setImagesSrcOri(List<String> imagesSrcOri) {
+		this.imagesSrcOri = imagesSrcOri;
 	}
 
 	public void setAdditionalProperties(Map<String, Object> additionalProperties) {

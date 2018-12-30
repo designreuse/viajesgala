@@ -67,6 +67,7 @@ public class WordPressService {
 			for (Post post: posts) {
 				
 				final List<String> imagesSrc = new ArrayList<String>();
+				final List<String> imagesSrcOri = new ArrayList<String>();
 				TagNode node = htmlCleaner.clean(post.getContent());
 				
 				node.traverse(new TagNodeVisitor() {
@@ -76,8 +77,12 @@ public class WordPressService {
 				            String tagName = tag.getName();
 				            if ("img".equals(tagName)) {
 				                String src = tag.getAttributeByName("src");
+				                String srcOri = tag.getAttributeByName("data-orig-file");
 				                if (src != null) {
 				                	imagesSrc.add(src);
+				                }
+				                if (srcOri != null) {
+				                	imagesSrcOri.add(srcOri);
 				                }
 				                tag.removeFromTree();
 				            }
@@ -90,6 +95,7 @@ public class WordPressService {
 				SimpleHtmlSerializer serializer = new SimpleHtmlSerializer(htmlCleaner.getProperties());
 				post.setContent(serializer.getAsString(node));
 				post.setImagesSrc(imagesSrc);
+				post.setImagesSrcOri(imagesSrcOri);
 				
 			}
 			
