@@ -770,9 +770,8 @@ h6
 .swiper-pagination-bullet:nth-child(6):after{content: "Islas ExÃ³ticas";}
 .contacta_home
 {
-	/*background-image: url(/viagesgala/images/contacta_home.jpg);*/
 	background-image: url(/viajesgala/images/contacta_home.jpg);	
-	background-attachment: fixed;
+	/*background-attachment: fixed;*/
 	z-index: 1;
 	position: relative;
 }

@@ -3,8 +3,8 @@
 /*--------------------------------------------------------------*/
 @media screen and (max-width: 1300px) 
 {
-	.header_continente video {transform: scale(0.8); transform-origin: 0 0;}
-	body.home .portada video {transform: translateX(-50%) translateY(-50%) scale(0.8);}
+	/*.header_continente video {transform: scale(0.8); transform-origin: 0 0;}
+	body.home .portada video {transform: translateX(-50%) translateY(-50%) scale(0.8);}*/
 	.header_continente canvas {transform: scale(0.8); transform-origin: 0 0;}
 	body.home .portada canvas {transform: translateX(-50%) translateY(-50%) scale(0.8);}
 	.portada .main{padding: 30px;}
