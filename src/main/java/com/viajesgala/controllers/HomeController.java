@@ -191,4 +191,13 @@ public class HomeController {
 		return "OK";				
 	}
 	
+	@GetMapping("/posts/clear")
+	@ResponseBody
+	public String clearSession (HttpSession session) {
+		session.setAttribute("posts", null);
+		session.setAttribute("categoriesInfo", null);
+		session.setAttribute("categories", null);
+		return "clear ok";		
+	}
+	
 }
