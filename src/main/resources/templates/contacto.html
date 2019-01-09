@@ -66,34 +66,6 @@
 
 <div th:replace="fragments/index::menu"></div>
 
-<div class="container tamanoMigas">
-
-	<!------------------------------------------------------------->
-	<!---------------------------- MIGAS -------------------------->
-	<!------------------------------------------------------------->	
-	<div id="migas" class="contenedormigas">			
-		<div class="main migas pdd30">
-			<div class="moduletable">					
-				<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="migasdepan">
-					<li>
-						<a th:href="@{/}" href="home.html">
-							Inicio
-						</a>
-						<i class="fa fa-caret-right" aria-hidden="true"></i>
-					</li>
-					<!--  <li>
-						<a th:with="vHref='/posts/'+${category}" th:href="@{${vHref}}" th:text="${category}"></a>
-						<i class="fa fa-caret-right" aria-hidden="true"></i>
-					</li>-->	
-					<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-						<span itemprop="name" th:text="Contacto"></span>							
-						<meta itemprop="position" content="1">
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
 	<!-------------------------------------------------------------->
 	<!---------------------------- ALERTA -------------------------->
 	<!-------------------------------------------------------------->	
@@ -102,30 +74,33 @@
 	<!------------------------------------------------------------------>
 	<!---------------------------- FORMULARIO -------------------------->
 	<!------------------------------------------------------------------>
+	<div class="container-fluid">
 	<div class="contact-form">
 		<form id="idFormularioMail" class="contact-form-in" action="mail" method="post">
 	        <h1>Contáctanos</h1>
 			<p class="hint-text">Nos encantaría saber de tí, por favor escríbenos si tienes alguna consulta relacionada con nuestros productos o servicios.</p>
-			<div class="form-group">
-				<label for="inputName">Nombre</label>
-				<input type="text" class="form-control" id="inputName" name="inputName" required>
+			<div class="row">
+				<div class="col-12">
+					<div class="form-group">
+						<label for="inputName">Nombre</label>
+						<input type="text" class="form-control" id="inputName" name="inputName" required>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail">Dirección de Email</label>
+						<input type="email" class="form-control" id="inputEmail" name="inputEmail" required>
+					</div>
+					<div class="form-group">
+						<label for="inputMessage">Mensaje</label>
+						<textarea class="form-control" id="inputMessage" name="inputMessage" rows="5" required></textarea>
+					</div>
+					<!--<div class="g-recaptcha form-group-capcha" data-sitekey="6Le_6IMUAAAAAPBLp0yKTIp0psvQ7DHX4985u7Gg"></div>-->
+					<div class="form-group-capcha" id="html_element"></div>
+					<button id="buttonSendMail" type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Enviar mensaje</button>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="inputEmail">Dirección de Email</label>
-				<input type="email" class="form-control" id="inputEmail" name="inputEmail" required>
-			</div>
-			<div class="form-group">
-				<label for="inputMessage">Mensaje</label>
-				<textarea class="form-control" id="inputMessage" name="inputMessage" rows="5" required></textarea>
-			</div>
-			<!--<div class="g-recaptcha form-group-capcha" data-sitekey="6Le_6IMUAAAAAPBLp0yKTIp0psvQ7DHX4985u7Gg"></div>-->
-			<div class="form-group-capcha" id="html_element"></div>
-			<button id="buttonSendMail" type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Enviar mensaje</button>
 		</form>
 		<script src="https://www.google.com/recaptcha/api.js"></script>
 	</div>
-
-</div>
-
+	</div>
 </body>
 </html>
