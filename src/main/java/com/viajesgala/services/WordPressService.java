@@ -10,6 +10,8 @@ import org.htmlcleaner.TagNode;
 import org.htmlcleaner.TagNodeVisitor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +42,11 @@ public class WordPressService {
 	
 	@Autowired
 	private WPAdapter wpAdapter;
+	
+	@Autowired
+    private CacheManager cacheManager;
 
+	@Cacheable("posts")
 	public List<Post> getPosts () {
 	
 		RestTemplate restTemplate = new RestTemplate();
@@ -105,7 +111,8 @@ public class WordPressService {
 		
 	}
 	
-	public List<CategorieInfoV2> getCategories () {
+	@Cacheable("categoriesInfo")
+	public List<CategorieInfoV2> getCategoriesInfo () {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		

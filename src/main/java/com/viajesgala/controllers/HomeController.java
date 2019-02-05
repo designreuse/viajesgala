@@ -16,6 +16,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,23 +51,34 @@ public class HomeController {
 	@Autowired
 	private RecaptchaService captchaService;
 	
-	private List<Post> getPosts (HttpSession session) {
-		List<Post> posts = (List<Post>)session.getAttribute("posts");
-		//List<Post> posts = null;
-		if (CollectionUtils.isEmpty(posts)) {
-			posts = wordPressService.getPosts();
-			session.setAttribute("posts",posts);
-		}		
+	@Autowired
+    private CacheManager cacheManager;
+	
+	private List<Post> getPosts () {
+		List<Post> posts = wordPressService.getPosts();
 		return posts;
 	}
 	
-	private List<CategorieInfoV2> getCategoriesInfo (HttpSession session) {
-		List<CategorieInfoV2> categories = (List<CategorieInfoV2>)session.getAttribute("categoriesInfo");
-		//List<CategorieInfoV2> categories = null;
-		if (CollectionUtils.isEmpty(categories)) {
-			categories = wordPressService.getCategories();
-			session.setAttribute("categoriesInfo",categories);
-		}		
+	private List<String> getCategories () {
+		
+		List<String> categories = null;
+		
+		List<Post> posts = getPosts();
+		Set<String> categoriesSet = new HashSet<>();
+		if (!CollectionUtils.isEmpty(posts)) {
+			for (Post post: posts) {
+				for (Category category: post.getTerms().getCategory()) {
+					categoriesSet.add(Utilidades.initCap(category.getName()));
+				}
+			}
+			categories = new ArrayList<String>(categoriesSet);
+		}
+		return categories;
+		
+	}
+	
+	private List<CategorieInfoV2> getCategoriesInfo () {
+		List<CategorieInfoV2> categories = wordPressService.getCategoriesInfo();
 		return categories;
 	}
 	
@@ -87,29 +99,10 @@ public class HomeController {
 		return descripcionCategoria;
 	}
 	
-	private List<String> getCategories (HttpSession session) {
-		List<String> categories = (List<String>)session.getAttribute("categories");		
-		//List<String> categories = null;		
-		if (CollectionUtils.isEmpty(categories)) {
-			List<Post> posts = getPosts(session);
-			Set<String> categoriesSet = new HashSet<>();
-			if (!CollectionUtils.isEmpty(posts)) {
-				for (Post post: posts) {
-					for (Category category: post.getTerms().getCategory()) {
-						categoriesSet.add(Utilidades.initCap(category.getName()));
-					}
-				}
-				categories = new ArrayList<String>(categoriesSet);
-				session.setAttribute("categories", categories);
-			}
-		}
-		return categories;
-	}
-	
 	@GetMapping("")
-	public String home(Model model, HttpSession session) {		
-		List<Post> posts = getPosts(session);
-		List<String> categories = getCategories(session);
+	public String home(Model model) {		
+		List<Post> posts = getPosts();
+		List<String> categories = getCategories();
 		
 		model.addAttribute("posts",posts);
 		model.addAttribute("categories",categories);
@@ -118,8 +111,8 @@ public class HomeController {
 	}
 	
 	@GetMapping("/posts/{category}")
-	public String posts(Model model,@PathVariable String category, HttpSession session) {
-		List<Post> posts = getPosts(session);
+	public String posts(Model model,@PathVariable String category) {
+		List<Post> posts = getPosts();
 		List<Post> postsFiltered = new ArrayList<Post>();
 		
 		if (posts != null) {			
@@ -132,11 +125,11 @@ public class HomeController {
 			}
 		}
 		
-		List<String> categories = getCategories(session);
+		List<String> categories = getCategories();
 		
 		model.addAttribute("posts",postsFiltered);
 		model.addAttribute("category",category);
-		model.addAttribute("descripcionCategoria", descripcionCategoria(getCategoriesInfo (session),category));
+		model.addAttribute("descripcionCategoria", descripcionCategoria(getCategoriesInfo(),category));
 		model.addAttribute("categories",categories);
 		
 		return "categoria";
@@ -144,20 +137,20 @@ public class HomeController {
 	}
 	
 	@GetMapping("/post/{category}/{ID}")
-	public String post(Model model, @PathVariable String category, @PathVariable String ID, HttpSession session) {
-		List<Post> posts = getPosts(session);
-		List<String> categories = getCategories(session);
+	public String post(Model model, @PathVariable String category, @PathVariable String ID) {
+		List<Post> posts = getPosts();
+		List<String> categories = getCategories();
 		Post post = posts.stream().filter(p -> p.getID() == Integer.parseInt(ID)).collect(Collectors.toList()).get(0);
 		model.addAttribute("post",post);
 		model.addAttribute("categories",categories);
 		model.addAttribute("category",category);
-		model.addAttribute("descripcionCategoria", descripcionCategoria(getCategoriesInfo (session),category));
+		model.addAttribute("descripcionCategoria", descripcionCategoria(getCategoriesInfo(),category));
 		return "post";		
 	}
 	
 	@GetMapping("contacto")
 	public String contacto(Model model, HttpSession session) {
-		List<String> categories = getCategories(session);
+		List<String> categories = getCategories();
 		model.addAttribute("categories",categories);
 		return "contacto";
 	}
@@ -193,10 +186,8 @@ public class HomeController {
 	
 	@GetMapping("/posts/clear")
 	@ResponseBody
-	public String clearSession (HttpSession session) {
-		session.setAttribute("posts", null);
-		session.setAttribute("categoriesInfo", null);
-		session.setAttribute("categories", null);
+	public String clearCache () {
+		cacheManager.getCacheNames().parallelStream().forEach(name -> cacheManager.getCache(name).clear());
 		return "clear ok";		
 	}
 	
