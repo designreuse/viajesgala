@@ -523,6 +523,27 @@ body.home .portada .contacto_derecha .redes_home a:focus i
 	color: #fff;
 	transition:all 0.3s ease-out; -webkit-trasition:all 0.3s ease-out;
 }
+body.home .portada .contacto_derecha .location
+{
+	position: absolute;
+	right: 27px;
+	top: 330px;
+}
+body.home .portada .contacto_derecha .location i
+{
+	display: inherit;
+	color: #ccc;
+	font-size: 30px;
+	padding: 10px 0;
+	transition:all 0.3s ease-out; -webkit-trasition:all 0.3s ease-out;
+}
+body.home .portada .contacto_derecha .location a:hover i,
+body.home .portada .contacto_derecha .location a:active i,
+body.home .portada .contacto_derecha .location a:focus i
+{
+	color: #fff;
+	transition:all 0.3s ease-out; -webkit-trasition:all 0.3s ease-out;
+}
 h1
 {
 	color: #151515; /*#fff;*/
