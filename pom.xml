@@ -32,6 +32,7 @@
 		<custom-scrollbar.version>3.1.5</custom-scrollbar.version>
 		<commons-collections4.version>4.2</commons-collections4.version>
 		<commons-lang3.version>3.8.1</commons-lang3.version>
+		<jquery-colorbox.version>1.6.4</jquery-colorbox.version>
 	</properties>
 
 	<dependencies>
@@ -139,7 +140,14 @@
 		    <groupId>org.apache.commons</groupId>
 		    <artifactId>commons-lang3</artifactId>
 		    <version>${commons-lang3.version}</version>
-		</dependency>		
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.webjars.bower/jquery-colorbox -->
+		<dependency>
+		    <groupId>org.webjars.bower</groupId>
+		    <artifactId>jquery-colorbox</artifactId>
+		    <version>${jquery-colorbox.version}</version>
+		</dependency>				
 
 	</dependencies>
 

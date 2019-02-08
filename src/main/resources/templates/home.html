@@ -21,6 +21,21 @@
 
 <script th:src="@{/js/cookiealert-standalone.js}" src="../static/js/cookiealert-standalone.js"></script>
 
+<script>
+jQuery(document).ready(function($){
+	$('.googleMapPopUp').each(function() {
+	    var thisPopup = $(this);
+	    thisPopup.colorbox({
+	        iframe: true,
+	        innerWidth: 400,
+	        innerHeight: 300,
+	        opacity: 0.7,
+	        href: thisPopup.attr('href') + '&ie=UTF8&t=h&output=embed'
+	    });
+	});	
+});
+</script>
+
 <div th:replace="fragments/index::menu"></div>
 
 <!------------------------------------------------------------------------------------>
@@ -68,6 +83,7 @@
 						<div class="rota">	
 							<span style="color:black; font-weight: bold;font-size:15px;"><b>+34 953 034 333</b></span>
 							<a th:href="@{/contacto}" href="/contacto.html" class="btn btn-primary">Cont&aacute;ctanos</a>
+							<a class="googleMapPopUp" rel="nofollow" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.152702576171!2d-3.610718684279565!3d37.786460979757315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6e7ae59a12e941%3A0x8a3845b1a5e2a00d!2sVIAJES+GALA!5e0!3m2!1ses!2ses!4v1549611630075" target="_blank">View location map</a>
 						</div>
 						<div class="redes_home" style="">
 							<a href="https://es-es.facebook.com/viajesgalamanchareal/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
