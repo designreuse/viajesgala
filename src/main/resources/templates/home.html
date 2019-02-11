@@ -23,19 +23,26 @@
 
 <script>
 jQuery(document).ready(function($){
+
 	$('.googleMapPopUp').each(function() {
 	    var thisPopup = $(this);
 	    thisPopup.colorbox({
 	        iframe: true,
-	        innerWidth: 350,
-	        innerHeight: 200,
+	        fastiframe: false,
+	        innerWidth: 800,
+	        innerHeight: 600,
+	        scrolling: true,
 	        opacity: 0.7,
-	        href: thisPopup.attr('href') + '&ie=UTF8&t=h&output=embed',
-	        closeButton: false,
+	        //href: thisPopup.attr('href') + '&ie=UTF8&t=h&output=embed',
+	        closeButton: true,
 	        overlayClose: false,
-	        top: 300,
-	        right: 50
+	        close: 'Cerrar'
 	    });
+	    $('.cboxIframe').css('width','100%');
+	    $('.cboxIframe').css('height','600px');
+	    $('#cboxClose').css('font-weight','600');
+	    $('#colorbox').css('z-index','4000');
+	    thisPopup.colorbox.resize();
 	});	
 });
 </script>
