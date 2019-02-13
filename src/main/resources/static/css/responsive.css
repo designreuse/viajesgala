@@ -102,6 +102,8 @@
 	.swiper-slide {display: block; text-align: center;}
 	.swiper-container {height: auto;}
 	.swiper-slide .vertical {position: relative; transform: none; max-height: none;}
+	.location {display:none;}
+	.whatsapp {display:none !important}
 }
 
 /*--------------------------------------------------------------*/

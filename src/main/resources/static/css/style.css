@@ -484,7 +484,7 @@ body.home .portada .contacto_derecha .rota
 	position: absolute;
 	top: -10px;
 	right: 20px;
-	width: 271px;
+	width: 300px;
 }
 body.home .portada .contacto_derecha .rota .btn
 {
@@ -526,14 +526,15 @@ body.home .portada .contacto_derecha .redes_home a:focus i
 body.home .portada .contacto_derecha .location
 {
 	position: absolute;
-	right: 27px;
-	top: 330px;
+	right: 30px;
+	top: 450px;
+	z-index: 1000;
 }
 body.home .portada .contacto_derecha .location i
 {
 	display: inherit;
 	color: #ccc;
-	font-size: 30px;
+	font-size: 40px;
 	padding: 10px 0;
 	transition:all 0.3s ease-out; -webkit-trasition:all 0.3s ease-out;
 }
@@ -543,6 +544,16 @@ body.home .portada .contacto_derecha .location a:focus i
 {
 	color: #fff;
 	transition:all 0.3s ease-out; -webkit-trasition:all 0.3s ease-out;
+}
+body.home .portada .contacto_derecha .redes_home .rota
+{
+	transform: rotate(-90deg);
+	transform-origin: 100% 100%;
+	position: absolute;
+	top: -290px;
+	right: 4px;
+	width: 271px;
+	color: #ccc;
 }
 h1
 {
