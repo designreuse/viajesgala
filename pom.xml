@@ -7,7 +7,7 @@
 	<groupId>com.viajesgala</groupId>
 	<artifactId>viajesgala</artifactId>
 	<version>1.0.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>viajesgala</name>
 	<description>Viajes Gala</description>
