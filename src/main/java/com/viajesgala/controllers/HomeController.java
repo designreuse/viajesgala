@@ -166,8 +166,9 @@ public class HomeController {
 			          ) {
 		
 		String ip = request.getRemoteAddr();
+		System.out.println("mail ==> ip: "+ip);
 		String captchaVerifyMessage = captchaService.verifyRecaptcha(ip, recaptchaResponse);
-		 
+		System.out.println("mail ==> captchaVerifyMessage: "+captchaVerifyMessage); 
 		if ( StringUtils.isNotEmpty(captchaVerifyMessage)) {
 			Map<String, Object> response = new HashMap<>();
 			response.put("message", captchaVerifyMessage);
